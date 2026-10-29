@@ -1,0 +1,15 @@
+selenium>=4.25.0
+webdriver-manager>=4.0.2
+pyaudio>=0.2.14
+PyAudioWPatch>=0.2.12.9
+sounddevice>=0.5.0
+vosk>=0.3.45
+google-genai>=1.0.0
+notion-client>=2.2.1
+flask>=3.0.0
+flask-cors>=5.0.0
+python-dotenv>=1.0.1
+requests>=2.32.0
+scipy>=1.14.0
+noisereduce>=3.0.3
+numpy>=2.0.0

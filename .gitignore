@@ -1,3 +1,28 @@
+# Environment & Secrets
 .env
-/model
-__pycache__
+.env.local
+
+# Speech Recognition Models & Archives
+model/
+model_in/
+temp_model/
+temp_model_in/
+*.zip
+
+# Audio recordings & captures
+*.wav
+*.raw
+*.mp3
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Meeting runtime captures
+current_meet_screen.png
+
+# Intermediate test builds
+test_*.docx
+test_*.pdf

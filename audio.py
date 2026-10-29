@@ -1,50 +1,46 @@
+import os
+import wave
 import pyaudio
-from google.cloud import speech
+from gemini_functions import gemini_transcript
 
-speech_client = speech.SpeechClient()
-
-def transcribe_audio():
+def capture_and_transcribe_audio(duration_seconds=10, output_file="debug_audio.wav"):
     """
-    Captures audio from the microphone and transcribes it in real-time.
+    Captures microphone audio for a specified duration and transcribes it using Google Gemini API.
     """
-    audio = pyaudio.PyAudio()
-    stream = audio.open(format=pyaudio.paInt16,
-                        channels=1,
-                        rate=16000,
-                        input=True,
-                        frames_per_buffer=1024)
-    print(audio.get_device_info_by_index())
+    chunk = 1024
+    format = pyaudio.paInt16
+    channels = 1
+    rate = 16000
 
-    print("Listening for audio...")
+    p = pyaudio.PyAudio()
 
-    # Configure the request
-    config = speech.RecognitionConfig(
-        encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=16000,
-        language_code="en-US"
-    )
-    streaming_config = speech.StreamingRecognitionConfig(
-        config=config,
-        interim_results=True
-    )
+    print(f"[Audio] Recording {duration_seconds} seconds of audio from microphone...")
+    stream = p.open(format=format,
+                    channels=channels,
+                    rate=rate,
+                    input=True,
+                    frames_per_buffer=chunk)
 
-    # Stream audio data and send it to the Speech API
-    def generate_audio_chunks():
-        while True:
-            yield speech.StreamingRecognizeRequest(audio_content=stream.read(1024))
+    frames = []
+    for _ in range(0, int(rate / chunk * duration_seconds)):
+        data = stream.read(chunk)
+        frames.append(data)
 
-    # Perform the streaming recognition
-    responses = speech_client.streaming_recognize(
-        config=streaming_config,
-        requests=generate_audio_chunks()
-    )
+    print("[Audio] Recording complete. Saving to file...")
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
 
-    # Process the responses
-    try:
-        for response in responses:
-            for result in response.results:
-                if result.is_final:
-                    transcript = result.alternatives[0].transcript
-                    print(f"Transcript: {transcript}")
-    except Exception as e:
-        print(f"Error during streaming recognition: {e}")
+    with wave.open(output_file, 'wb') as wf:
+        wf.setnchannels(channels)
+        wf.setsampwidth(p.get_sample_size(format))
+        wf.setframerate(rate)
+        wf.writeframes(b''.join(frames))
+
+    print(f"[Audio] Audio saved to '{output_file}'. Transcribing with Google Gemini...")
+    transcript = gemini_transcript(output_file)
+    print(f"[Audio] Gemini Transcript:\n{transcript}")
+    return transcript
+
+if __name__ == "__main__":
+    capture_and_transcribe_audio(duration_seconds=5)
