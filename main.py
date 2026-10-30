@@ -1,6 +1,15 @@
 import os
 import sys
 import time
+import re
+import json
+import wave
+import signal
+import queue
+import logging
+from collections import deque
+from datetime import datetime
+from threading import Thread, Lock
 
 if sys.platform == "win32":
     try:
@@ -8,14 +17,6 @@ if sys.platform == "win32":
         sys.stderr.reconfigure(encoding="utf-8")
     except Exception:
         pass
-
-import json
-import wave
-import signal
-from collections import deque
-from threading import Thread, Lock
-import queue
-import logging
 
 # Silence verbose Werkzeug HTTP request logging
 logging.getLogger("werkzeug").setLevel(logging.ERROR)
@@ -34,12 +35,12 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS
 from vosk import Model, KaldiRecognizer
 
 from notion_integration import format_notes_for_notion, notes_to_notion
-from gemini_functions import check_and_respond_with_gemini, gemini_make_notes, gemini_transcript
+from gemini_functions import check_and_respond_with_gemini, gemini_make_notes, gemini_transcript, gemini_generate_quiz, gemini_evaluate_quiz
 
 # Load Environment Variables
 load_dotenv()
@@ -53,15 +54,8 @@ trigger_str = os.getenv("TRIGGER_KEYWORDS", "ganesh,jadhav,attendance,present")
 TRIGGER_KEYWORDS = [k.strip().lower() for k in trigger_str.split(",") if k.strip()]
 AUDIO_DEVICE_NAME = os.getenv("AUDIO_DEVICE_NAME", "default").strip().lower()
 
-print("=" * 60)
-print(f" AI Student Agent Initializing")
-print(f" Student Name: {STUDENT_NAME}")
-print(f" Trigger Keywords: {TRIGGER_KEYWORDS}")
-print(f" Notion Integration: {'Enabled' if (NOTION_API_TOKEN and NOTION_PAGE_ID) else 'Not configured'}")
-print("=" * 60)
-
-# Flask Configuration for audio processing endpoint
-app = Flask(__name__)
+# Flask Configuration
+app = Flask(__name__, template_folder="templates", static_folder="static")
 CORS(app)
 
 # VOSK Model Initialization
@@ -90,39 +84,129 @@ global_driver = None
 rolling_history = deque(maxlen=50)
 recording_frames = []
 session_transcript_lines = []
-is_running = True
+is_running = False
 last_attendance_trigger_time = 0
 audio_queue = queue.Queue(maxsize=300)
 vosk_lock = Lock()
+session_worker_thread = None
 
-# Reset transcript.txt so previous runs/mock lectures never contaminate the session
+# Reset transcript.txt so previous runs never contaminate the session
 with open("transcript.txt", "w", encoding="utf-8") as f:
     f.write("")
+
+# Dynamic Session State
+session_state = {
+    "status": "idle",  # "idle", "launching", "connecting", "in_meeting", "generating_notes", "completed", "error"
+    "message": "Ready to join Google Meet session.",
+    "meet_link": "",
+    "student_name": STUDENT_NAME,
+    "trigger_keywords": TRIGGER_KEYWORDS,
+    "start_time": None,
+    "end_time": None,
+    "captions": [],
+    "activity_logs": [],
+    "notes": "",
+    "transcript": "",
+    "notion_uploaded": False,
+    "notion_title": "",
+    "notion_error": None,
+    "error": None,
+    "quiz": [],
+    "quiz_result": None,
+}
+session_lock = Lock()
+
+
+def add_caption_to_session(speaker, text, t_str=None):
+    """Add dialogue entry to in-memory session buffer and transcript.txt."""
+    if not t_str:
+        t_str = datetime.now().strftime("%I:%M:%S %p")
+    clean_line = f"[{speaker}]: {text}"
+    session_transcript_lines.append(clean_line)
+
+    with open("transcript.txt", "a", encoding="utf-8") as f:
+        f.write(clean_line + "\n")
+
+    with session_lock:
+        session_state["captions"].append({
+            "speaker": speaker,
+            "text": text,
+            "time": t_str
+        })
+        if len(session_state["captions"]) > 250:
+            session_state["captions"] = session_state["captions"][-250:]
+
+
+def add_activity_log(log_type, message):
+    """Add event to agent decision & attendance log."""
+    t_str = datetime.now().strftime("%I:%M:%S %p")
+    print(f"[{log_type.upper()}] {message}", flush=True)
+    with session_lock:
+        session_state["activity_logs"].append({
+            "type": log_type,
+            "message": message,
+            "time": t_str
+        })
+        if len(session_state["activity_logs"]) > 100:
+            session_state["activity_logs"] = session_state["activity_logs"][-100:]
+
+
+def update_session_status(status, message=None, error=None):
+    """Safely update top-level session status."""
+    with session_lock:
+        session_state["status"] = status
+        if message:
+            session_state["message"] = message
+        if error is not None:
+            session_state["error"] = error
+    if message:
+        print(f"[State: {status.upper()}] {message}", flush=True)
+
+
+def normalize_meet_link(raw):
+    """
+    Validates and normalizes Google Meet URLs or meeting room codes.
+    Accepts:
+      - https://meet.google.com/xxx-yyyy-zzz
+      - meet.google.com/xxx-yyyy-zzz
+      - xxx-yyyy-zzz
+    """
+    raw = (raw or "").strip()
+    if not raw:
+        return None, "Please enter a Google Meet link or room code."
+
+    # Pattern for room code xxx-yyyy-zzz
+    code_match = re.match(r"^[a-zA-Z]{3}-[a-zA-Z]{4}-[a-zA-Z]{3}$", raw)
+    if code_match:
+        return f"https://meet.google.com/{raw.lower()}", None
+
+    if raw.startswith("meet.google.com/"):
+        raw = "https://" + raw
+
+    meet_pattern = r"https?://meet\.google\.com/[a-zA-Z]{3}-[a-zA-Z]{4}-[a-zA-Z]{3}"
+    if re.search(meet_pattern, raw):
+        return raw, None
+
+    return None, "Invalid Google Meet link. Format should be: https://meet.google.com/xxx-yyyy-zzz or xxx-yyyy-zzz"
 
 
 def process_audio_with_vosk(audio_data):
     """
     Process incoming 16kHz mono audio using persistent VOSK recognizer for real-time speech-to-text.
-    Protected with vosk_lock to prevent multi-threaded C++ memory corruption (0xc0000005).
+    Protected with vosk_lock to prevent multi-threaded C++ memory corruption.
     """
-    global rolling_history, global_recognizer, session_transcript_lines, last_attendance_trigger_time
+    global rolling_history, global_recognizer, last_attendance_trigger_time
 
     with vosk_lock:
         try:
-            # 1. Feed 16kHz chunk directly to Kaldi
             if global_recognizer.AcceptWaveform(audio_data):
                 result = json.loads(global_recognizer.Result())
                 text_cleaned = result.get("text", "").strip()
 
                 if text_cleaned:
-                    print(f"\n[Heard Speech (Vosk)]: \"{text_cleaned}\"", flush=True)
-                    line = f"[Speech]: {text_cleaned}"
-                    session_transcript_lines.append(line)
+                    add_caption_to_session("Audio Feed (Vosk)", text_cleaned)
                     words = text_cleaned.split()
                     rolling_history.extend(words)
-
-                    with open("transcript.txt", "a", encoding="utf-8") as transcript_file:
-                        transcript_file.write(line + "\n")
 
                     # Check for trigger keywords (student name, attendance call, roll number)
                     text_lower = text_cleaned.lower()
@@ -130,17 +214,17 @@ def process_audio_with_vosk(audio_data):
                     if any(kw in text_lower for kw in TRIGGER_KEYWORDS):
                         if now - last_attendance_trigger_time > 8:
                             last_attendance_trigger_time = now
-                            print(f"\n🔔 [ATTENDANCE/QUESTION TRIGGER DETECTED]: '{text_cleaned}'", flush=True)
+                            add_activity_log("trigger", f"Attendance trigger detected in audio: '{text_cleaned}'")
                             context_words = list(rolling_history)[-20:]
                             context = " ".join(context_words)
                             response = check_and_respond_with_gemini(context)
-                            print(f"🤖 [AI Generated Chat Response]: '{response}'", flush=True)
+                            add_activity_log("response", f"AI generated response: '{response}'")
                             if global_driver:
                                 send_message_to_chat(response)
 
                     return {"status": "Audio processed", "transcript": text_cleaned}
             else:
-                # 2. Check partial hypothesis for immediate mid-utterance attendance trigger
+                # Check partial hypothesis for immediate mid-utterance attendance trigger
                 partial_result = json.loads(global_recognizer.PartialResult())
                 partial_cleaned = partial_result.get("partial", "").strip()
                 if partial_cleaned:
@@ -149,16 +233,15 @@ def process_audio_with_vosk(audio_data):
                     if any(kw in partial_lower for kw in TRIGGER_KEYWORDS):
                         if now - last_attendance_trigger_time > 8:
                             last_attendance_trigger_time = now
-                            print(f"\n🔔 [ATTENDANCE TRIGGER (Mid-speech)]: '{partial_cleaned}'", flush=True)
+                            add_activity_log("trigger", f"Attendance trigger (mid-speech): '{partial_cleaned}'")
                             response = check_and_respond_with_gemini(f"Teacher called: {partial_cleaned}")
-                            print(f"🤖 [AI Generated Chat Response]: '{response}'", flush=True)
+                            add_activity_log("response", f"AI generated response: '{response}'")
                             if global_driver:
                                 send_message_to_chat(response)
                             global_recognizer.Reset()
 
             return {"status": "Processing stream"}
         except Exception as e:
-            print(f"Error in VOSK transcription: {e}", flush=True)
             return {"error": str(e)}
 
 
@@ -174,39 +257,11 @@ def speech_recognition_worker():
         except queue.Empty:
             continue
         except Exception as e:
-            print(f"[Speech Worker] Note: {e}", flush=True)
-
-
-@app.route("/process_audio", methods=["POST"])
-def process_audio():
-    """
-    Flask endpoint for receiving streaming audio chunks.
-    """
-    try:
-        audio_data = request.data
-        try:
-            audio_queue.put_nowait(audio_data)
-        except queue.Full:
             pass
-        return jsonify({"status": "Queued"}), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
-def start_flask_app():
-    """
-    Start local Flask receiver in a background thread.
-    """
-    app.run(port=5000, debug=False, use_reloader=False, threaded=True)
 
 
 def find_best_audio_device():
-    """
-    Find the best audio capture device:
-    1. Explicitly configured device in .env (e.g. Stereo Mix, VB-Cable)
-    2. Any device whose name contains 'stereo mix', 'cable output', 'what u hear'
-    3. Default system recording input (Microphone Array)
-    """
+    """Find the best audio capture device."""
     import sounddevice as sd
     devices = sd.query_devices()
 
@@ -256,19 +311,13 @@ def find_best_audio_device():
 def capture_audio_from_device():
     """
     Captures digital meeting audio directly from the instructor's Google Meet audio feed
-    using Windows WASAPI Loopback (pure digital software audio cable with zero room echo/distortion).
-    Downsamples 48kHz stereo to 16kHz mono PCM for VOSK.
-    Seamlessly falls back to sounddevice microphone if loopback is unavailable.
+    using Windows WASAPI Loopback. Seamlessly falls back to sounddevice microphone if unavailable.
     """
     global recording_frames, is_running
-    import time
-    import wave
-    import numpy as np
-    from scipy.signal import resample_poly
 
     prefer_mic = bool(AUDIO_DEVICE_NAME and any(k in AUDIO_DEVICE_NAME.lower() for k in ["mic", "microphone"]))
 
-    # 1. Primary Strategy: Digital WASAPI Speaker Loopback (Captures Instructor Speech Directly)
+    # 1. Primary Strategy: Digital WASAPI Speaker Loopback
     if not prefer_mic:
         try:
             import pyaudiowpatch as pyaudio
@@ -284,7 +333,6 @@ def capture_audio_from_device():
                     loopback_dev = dev
                     break
 
-            # If default speaker loopback not found, take first available loopback
             if loopback_dev is None:
                 for dev in p.get_loopback_device_info_generator():
                     loopback_dev = dev
@@ -296,12 +344,7 @@ def capture_audio_from_device():
                 native_sr = int(loopback_dev["defaultSampleRate"])
                 native_ch = int(loopback_dev["maxInputChannels"])
 
-                print("\n" + "=" * 68, flush=True)
-                print(f" [Audio Cable] ACTIVE: Pure Digital WASAPI Loopback (Instructor Stream)", flush=True)
-                print(f" [Audio Cable] Device: '{dev_name}' (Index: {dev_idx})", flush=True)
-                print(f" [Audio Cable] Format: {native_sr}Hz {native_ch}ch -> 16,000Hz Mono 16-bit PCM", flush=True)
-                print(f" [Audio Cable] Digital Studio Audio: ZERO room echo, ZERO fan noise, ZERO distortion", flush=True)
-                print("=" * 68 + "\n", flush=True)
+                print(f"[Audio Cable] ACTIVE: WASAPI Loopback on '{dev_name}' ({native_sr}Hz -> 16kHz mono)", flush=True)
 
                 def loopback_callback(in_data, frame_count, time_info, status):
                     if not is_running:
@@ -313,7 +356,6 @@ def capture_audio_from_device():
                     else:
                         mono = samples[:, 0].astype(np.float32)
 
-                    # Anti-aliased high-fidelity polyphase resample to 16,000Hz
                     if native_sr == 48000:
                         resampled = resample_poly(mono, 1, 3).astype(np.int16)
                     elif native_sr == 44100:
@@ -342,7 +384,6 @@ def capture_audio_from_device():
 
                 try:
                     stream.start_stream()
-                    print(f"[Audio Cable] Live stream listening to Google Meet instructor audio...", flush=True)
                     while is_running:
                         time.sleep(0.3)
                 finally:
@@ -353,7 +394,6 @@ def capture_audio_from_device():
                         pass
                     p.terminate()
 
-                    print("[Audio Cable] Saving session audio to 'debug_audio.wav'...", flush=True)
                     try:
                         if recording_frames:
                             with wave.open("debug_audio.wav", "wb") as wf:
@@ -361,14 +401,11 @@ def capture_audio_from_device():
                                 wf.setsampwidth(2)
                                 wf.setframerate(16000)
                                 wf.writeframes(b"".join(recording_frames))
-                            print(f"[Audio Cable] Session audio saved successfully to 'debug_audio.wav' ({len(recording_frames)} chunks).", flush=True)
-                        else:
-                            print("[Audio Cable] Notice: No audio chunks were captured in this session.", flush=True)
                     except Exception as e:
                         print(f"[Audio Cable] Error saving WAV: {e}", flush=True)
                 return
         except Exception as e:
-            print(f"[Audio Cable] WASAPI Loopback notice: {e}. Falling back to standard input device...", flush=True)
+            print(f"[Audio Cable] WASAPI notice: {e}. Falling back to sounddevice...", flush=True)
 
     # 2. Fallback Strategy: Physical Audio Input / Microphone Array via sounddevice
     import sounddevice as sd
@@ -380,7 +417,6 @@ def capture_audio_from_device():
     dev_name = dev_info["name"]
     max_in = dev_info.get("max_input_channels", 1)
     default_sr = int(dev_info.get("default_samplerate", 16000))
-    print(f"[Audio] Selected audio capture device: '{dev_name}' (Index: {target_idx}, Channels: {max_in}, Native SR: {default_sr}Hz)", flush=True)
 
     target_sr = 16000
     target_channels = 1
@@ -390,12 +426,10 @@ def capture_audio_from_device():
 
     try:
         sd.check_input_settings(device=target_idx, channels=target_channels, samplerate=target_sr, dtype="int16")
-        print(f"[Audio] Audio stream configured for DIRECT 16,000Hz mono capture.", flush=True)
-    except Exception as e:
+    except Exception:
         stream_sr = default_sr
         stream_channels = 1 if max_in < 2 else 2
         software_resample = True
-        print(f"[Audio] Driver does not accept direct 16kHz ({e}). Using native {stream_sr}Hz with polyphase resampling.", flush=True)
 
     def audio_callback(indata, frames, time_info, status):
         if not is_running:
@@ -432,13 +466,11 @@ def capture_audio_from_device():
             blocksize=4000,
             callback=audio_callback,
         ):
-            print(f"[Audio] Real-time audio capture stream is ACTIVE on '{dev_name}'.", flush=True)
             while is_running:
                 time.sleep(0.3)
     except Exception as e:
         print(f"[Audio] SoundDevice capture error: {e}", flush=True)
     finally:
-        print("[Audio] Saving session audio to 'debug_audio.wav'...", flush=True)
         try:
             if recording_frames:
                 with wave.open("debug_audio.wav", "wb") as wf:
@@ -446,41 +478,31 @@ def capture_audio_from_device():
                     wf.setsampwidth(2)
                     wf.setframerate(16000)
                     wf.writeframes(b"".join(recording_frames))
-                print(f"[Audio] Session audio saved successfully to 'debug_audio.wav' ({len(recording_frames)} chunks).", flush=True)
-            else:
-                print("[Audio] Notice: No audio chunks were captured in this session.", flush=True)
-        except Exception as e:
-            print(f"[Audio] Error saving WAV: {e}", flush=True)
+        except Exception:
+            pass
 
 
 def handle_exit(signum, frame):
-    """
-    Handle graceful shutdown when Ctrl+C is pressed.
-    Signals session completion so lecture notes are generated and uploaded.
-    """
+    """Handle graceful shutdown."""
     global is_running
-    print("\n[Shutdown] Stopping agent gracefully and proceeding to generate notes...", flush=True)
+    print("\n[Shutdown] Stopping agent gracefully...", flush=True)
     is_running = False
 
 
 def enable_google_meet_captions(driver):
-    """
-    Enables Closed Captions (CC) in Google Meet if not already enabled.
-    """
+    """Enables Closed Captions (CC) in Google Meet if not already enabled."""
     if not driver:
         return False
 
     try:
-        # 1. Check if captions are already active
         active_btn = driver.find_elements(
             By.XPATH,
             "//button[(contains(@aria-label, 'Turn off captions') or contains(@aria-label, 'turn off captions') or @aria-pressed='true') and (contains(@aria-label, 'caption') or contains(@aria-label, 'Caption'))]"
         )
         if active_btn:
-            print("[Captions] Google Meet Closed Captions are already ACTIVE.", flush=True)
+            print("[Captions] Google Meet Closed Captions are ACTIVE.", flush=True)
             return True
 
-        # 2. Click Turn on captions button
         caption_buttons = driver.find_elements(
             By.XPATH,
             "//button[contains(@aria-label, 'Turn on captions') or contains(@aria-label, 'turn on captions') or contains(@aria-label, 'captions') or contains(@aria-label, 'Captions') or contains(., 'closed_caption')]"
@@ -488,15 +510,13 @@ def enable_google_meet_captions(driver):
         for b in caption_buttons:
             try:
                 if b.is_displayed():
-                    al = b.get_attribute("aria-label") or "captions button"
                     b.click()
-                    print(f"[Captions] Clicked Closed Captions button: '{al}'", flush=True)
+                    print(f"[Captions] Clicked Closed Captions toggle.", flush=True)
                     time.sleep(1)
                     return True
             except Exception:
                 pass
 
-        # 3. Fallback: Send 'c' key to page body
         body = driver.find_element(By.TAG_NAME, "body")
         body.send_keys("c")
         print("[Captions] Sent hotkey 'c' to toggle Closed Captions.", flush=True)
@@ -559,7 +579,6 @@ INJECT_CAPTION_OBSERVER_JS = """
 
     function scanCaptions() {
         try {
-            // Strategy 1: Google Meet caption containers
             const blocks = document.querySelectorAll(
                 'div.nMkdHc, div.VbkSUe, div[jscontroller="D1tHje"] > div, div.a4cQT > div, div[aria-live="polite"] > div'
             );
@@ -587,7 +606,6 @@ INJECT_CAPTION_OBSERVER_JS = """
                 }
             });
 
-            // Strategy 2: aria-live region (Accessibility stream)
             const liveRegions = document.querySelectorAll('div[aria-live="polite"], div[aria-live="assertive"]');
             liveRegions.forEach(region => {
                 const raw = cleanStr(region.innerText);
@@ -601,7 +619,6 @@ INJECT_CAPTION_OBSERVER_JS = """
                 }
             });
 
-            // If active speaker hasn't added new words for >= 1.5s, commit
             if (lastText && (Date.now() - lastChangeTime > 1500)) {
                 emitCaption(lastSpeaker, lastText);
                 lastText = "";
@@ -634,12 +651,10 @@ INJECT_CAPTION_OBSERVER_JS = """
 def monitor_captions_loop():
     """
     Background worker that monitors Google Meet's DOM in real time,
-    toggles Closed Captions once inside the meeting, captures speaker-attributed speech,
-    writes to transcript.txt and terminal, and checks for triggers to auto-respond in chat.
+    toggles Closed Captions, captures speaker speech, and responds to triggers.
     """
     global is_running, global_driver, session_transcript_lines, rolling_history
 
-    print("[Captions] Caption and speaker monitor thread started.", flush=True)
     in_call = False
     captions_enabled = False
     last_check_time = 0
@@ -650,11 +665,9 @@ def monitor_captions_loop():
             continue
 
         try:
-            # 1. Check if user is inside the meeting room
             now = time.time()
             if not in_call or (now - last_check_time > 5):
                 last_check_time = now
-                # Look for meeting room call controls
                 meet_controls = global_driver.find_elements(
                     By.XPATH,
                     "//button[contains(@aria-label, 'Leave call') or contains(@aria-label, 'leave call') or contains(@aria-label, 'captions') or contains(@aria-label, 'Captions') or contains(@aria-label, 'Chat')]"
@@ -662,18 +675,14 @@ def monitor_captions_loop():
                 if meet_controls:
                     if not in_call:
                         in_call = True
-                        print("\n" + "=" * 60, flush=True)
-                        print(">>> IN GOOGLE MEET CALL ROOM! Enabling Closed Captions... <<<", flush=True)
-                        print("=" * 60 + "\n", flush=True)
+                        print("\n>>> ACTIVE IN GOOGLE MEET CALL ROOM! Enabling Closed Captions... <<<", flush=True)
+                        update_session_status("in_meeting", "Active in meeting room. Monitoring audio & captions.")
 
                     if not captions_enabled:
                         captions_enabled = enable_google_meet_captions(global_driver)
 
             if in_call:
-                # 2. Inject caption observer if needed
                 global_driver.execute_script(INJECT_CAPTION_OBSERVER_JS)
-
-                # 3. Harvest new captions
                 captions = global_driver.execute_script(
                     "return (window.__get_new_captions ? window.__get_new_captions() : []);"
                 )
@@ -687,22 +696,15 @@ def monitor_captions_loop():
                         if not text or len(text.split()) < 1:
                             continue
 
-                        line = f"[{speaker}]: {text}"
-                        print(f"\n[Meeting STT {t_str}] [{speaker}]: \"{text}\"", flush=True)
-
-                        session_transcript_lines.append(line)
-                        with open("transcript.txt", "a", encoding="utf-8") as f:
-                            f.write(line + "\n")
-
+                        add_caption_to_session(speaker, text, t_str)
                         words = text.split()
                         rolling_history.extend(words)
 
-                        # Check for trigger keywords / student name
                         text_lower = text.lower()
                         if any(kw in text_lower for kw in TRIGGER_KEYWORDS):
-                            print(f"\n🔔 [ATTENDANCE/QUESTION DETECTED from {speaker}]: '{text}'", flush=True)
+                            add_activity_log("trigger", f"Attendance trigger from {speaker}: '{text}'")
                             response = check_and_respond_with_gemini(f"{speaker} says: {text}")
-                            print(f"🤖 [AI Generated Chat Response]: '{response}'", flush=True)
+                            add_activity_log("response", f"AI generated response: '{response}'")
                             send_message_to_chat(response)
 
         except Exception:
@@ -711,36 +713,8 @@ def monitor_captions_loop():
         time.sleep(0.5)
 
 
-def get_primary_chrome_profile():
-    """
-    Detects the user's primary signed-in Chrome profile from their actual Chrome installation.
-    """
-    local_state_path = os.path.join(
-        os.environ.get("LOCALAPPDATA", ""), "Google", "Chrome", "User Data", "Local State"
-    )
-    if os.path.exists(local_state_path):
-        try:
-            with open(local_state_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            last_used = data.get("profile", {}).get("last_used")
-            if last_used:
-                return last_used
-            info_cache = data.get("profile", {}).get("info_cache", {})
-            for p_dir, p_info in info_cache.items():
-                if p_info.get("user_name"):
-                    return p_dir
-            if info_cache:
-                return list(info_cache.keys())[0]
-        except Exception:
-            pass
-    return "Profile 2"
-
-
 def force_bring_chrome_to_front():
-    """
-    Brings the visible Chrome window to the absolute front of the user's screen.
-    Uses Win32 API to bypass Windows 11 foreground lock so the automation is 100% visible.
-    """
+    """Brings the visible Chrome window to the absolute front."""
     if sys.platform != "win32":
         return
     try:
@@ -774,106 +748,24 @@ def force_bring_chrome_to_front():
             user32.SetFocus(hwnd)
             if fg_thread != cur_thread:
                 user32.AttachThreadInput(cur_thread, fg_thread, False)
-            print(f"[UI] Chrome window brought directly to the front screen.", flush=True)
             break
     except Exception:
         pass
 
 
-def turn_off_mic_and_camera(driver):
-    """
-    Turns off microphone and camera on the Google Meet pre-join lobby screen.
-    """
-    print("[Google Meet] Turning off microphone and camera before joining...", flush=True)
-    time.sleep(1.5)
-
-    # 1. Turn off Microphone (Mute)
-    mic_muted = False
-    mic_selectors = [
-        "//button[contains(@aria-label, 'Turn off microphone') or contains(@aria-label, 'turn off microphone') or contains(@aria-label, 'ctrl + d') or contains(@aria-label, 'Ctrl + D')]",
-        "//div[@role='button'][contains(@aria-label, 'Turn off microphone') or contains(@aria-label, 'turn off microphone')]",
-        "//button[@data-is-muted='false' and (contains(@aria-label, 'microphone') or contains(@aria-label, 'Microphone'))]",
-        "//button[contains(@aria-label, 'microphone') and not(contains(@aria-label, 'Turn on'))]",
-    ]
-    for m_sel in mic_selectors:
-        try:
-            mic_btns = driver.find_elements(By.XPATH, m_sel)
-            for mb in mic_btns:
-                if mb.is_displayed():
-                    driver.execute_script("arguments[0].click();", mb)
-                    print("[Google Meet] Microphone turned OFF (button clicked).", flush=True)
-                    mic_muted = True
-                    break
-            if mic_muted:
-                break
-        except Exception:
-            continue
-
-    if not mic_muted:
-        try:
-            body = driver.find_element(By.TAG_NAME, "body")
-            body.send_keys(Keys.CONTROL, "d")
-            print("[Google Meet] Microphone turned OFF (Ctrl+D shortcut).", flush=True)
-        except Exception as e:
-            print(f"[Google Meet] Mic shortcut note: {e}", flush=True)
-
-    time.sleep(1)
-
-    # 2. Turn off Camera
-    cam_off = False
-    cam_selectors = [
-        "//button[contains(@aria-label, 'Turn off camera') or contains(@aria-label, 'turn off camera') or contains(@aria-label, 'ctrl + e') or contains(@aria-label, 'Ctrl + E')]",
-        "//div[@role='button'][contains(@aria-label, 'Turn off camera') or contains(@aria-label, 'turn off camera')]",
-        "//button[@data-is-muted='false' and (contains(@aria-label, 'camera') or contains(@aria-label, 'Camera'))]",
-        "//button[contains(@aria-label, 'camera') and not(contains(@aria-label, 'Turn on'))]",
-    ]
-    for c_sel in cam_selectors:
-        try:
-            cam_btns = driver.find_elements(By.XPATH, c_sel)
-            for cb in cam_btns:
-                if cb.is_displayed():
-                    driver.execute_script("arguments[0].click();", cb)
-                    print("[Google Meet] Camera turned OFF (button clicked).", flush=True)
-                    cam_off = True
-                    break
-            if cam_off:
-                break
-        except Exception:
-            continue
-
-    if not cam_off:
-        try:
-            body = driver.find_element(By.TAG_NAME, "body")
-            body.send_keys(Keys.CONTROL, "e")
-            print("[Google Meet] Camera turned OFF (Ctrl+E shortcut).", flush=True)
-        except Exception as e:
-            print(f"[Google Meet] Cam shortcut note: {e}", flush=True)
-
-    time.sleep(1)
-
-
 def join_google_meet(meet_link, audio_thread=None):
     """
     Automates joining a Google Meet session with live visible Chrome window.
+    Proceeds directly with the provided meet_link from the front end.
     """
     global global_driver, is_running
 
-    if not meet_link or "meet.google.com" not in meet_link:
-        print("[Google Meet] Notice: No valid GMEET_LINK set in .env.")
-        print("[Google Meet] Audio listening and transcription active locally.")
-        if audio_thread is None or not audio_thread.is_alive():
-            audio_thread = Thread(target=capture_audio_from_device, daemon=True)
-            audio_thread.start()
-        input("Press Enter in terminal to stop recording and process notes...")
-        return
-
     import subprocess
 
-    # 1. Terminate any orphaned Chrome processes cleanly
+    update_session_status("launching", "Terminating background Chrome instances...")
     subprocess.run(["taskkill", "/IM", "chrome.exe", "/F"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(1)
 
-    # 2. Dedicated Chrome persistent profile directory
     user_data = os.path.join(os.environ.get("LOCALAPPDATA", os.path.expanduser("~")), "AIStudentAgent", "ChromeMeetProfile")
     os.makedirs(user_data, exist_ok=True)
     for lock in ["lockfile", "SingletonLock", "SingletonCookie", "SingletonSocket"]:
@@ -884,7 +776,6 @@ def join_google_meet(meet_link, audio_thread=None):
             except Exception:
                 pass
 
-    # 3. Launch Chrome directly through Selenium on a single dedicated window
     chrome_options = Options()
     chrome_options.add_argument(f"--user-data-dir={user_data}")
     chrome_options.add_argument("--start-maximized")
@@ -893,16 +784,15 @@ def join_google_meet(meet_link, audio_thread=None):
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option("useAutomationExtension", False)
 
-    print("[Google Meet] Launching single dedicated Chrome window...", flush=True)
+    update_session_status("launching", "Opening dedicated Chrome browser window...")
     try:
         global_driver = webdriver.Chrome(options=chrome_options)
-        print("[Google Meet] Chrome browser connected successfully!", flush=True)
+        add_activity_log("info", "Chrome browser connected successfully.")
     except Exception as e:
-        print(f"[Google Meet] Error launching Chrome: {e}", flush=True)
+        update_session_status("error", f"Error launching Chrome: {e}", error=str(e))
         return
 
-    # 4. Navigate directly to meet_link on this single tab
-    print(f"[Google Meet] Navigating to: {meet_link}", flush=True)
+    update_session_status("connecting", f"Navigating to: {meet_link}")
     try:
         global_driver.get(meet_link)
     except Exception as e:
@@ -915,16 +805,17 @@ def join_google_meet(meet_link, audio_thread=None):
         pass
     force_bring_chrome_to_front()
 
-    print("[Google Meet] Interacting with meeting lobby strictly quick...", flush=True)
+    update_session_status("connecting", "Handling lobby: muting mic & turning off camera...")
     joined = False
 
-    for attempt in range(50):  # Poll every 0.3s (up to 15 seconds)
+    for attempt in range(50):
+        if not is_running:
+            break
         time.sleep(0.3)
         try:
             status = global_driver.execute_script("""
                 let res = { mic: false, cam: false, joined: false, button_text: '' };
 
-                // Dismiss popups ("Got it", "Dismiss")
                 const allBtns = Array.from(document.querySelectorAll('button'));
                 for (const b of allBtns) {
                     const t = (b.innerText || b.textContent || '').trim().toLowerCase();
@@ -933,7 +824,6 @@ def join_google_meet(meet_link, audio_thread=None):
                     }
                 }
 
-                // 1. Turn OFF Microphone
                 const interactive = Array.from(document.querySelectorAll('button, div[role="button"]'));
                 for (const b of interactive) {
                     const aria = (b.getAttribute('aria-label') || '').toLowerCase();
@@ -944,7 +834,6 @@ def join_google_meet(meet_link, audio_thread=None):
                     }
                 }
 
-                // 2. Turn OFF Camera
                 for (const b of interactive) {
                     const aria = (b.getAttribute('aria-label') || '').toLowerCase();
                     if (aria.includes('turn off camera') || (aria.includes('camera') && !aria.includes('turn on'))) {
@@ -954,7 +843,6 @@ def join_google_meet(meet_link, audio_thread=None):
                     }
                 }
 
-                // 3. Click 'Ask to join' or 'Join now'
                 for (const b of allBtns) {
                     const t = (b.innerText || b.textContent || '').trim().toLowerCase();
                     const aria = (b.getAttribute('aria-label') || '').toLowerCase();
@@ -971,19 +859,14 @@ def join_google_meet(meet_link, audio_thread=None):
             """)
 
             if status:
-                if status.get("mic"):
-                    print("[Google Meet] Microphone turned OFF.", flush=True)
-                if status.get("cam"):
-                    print("[Google Meet] Camera turned OFF.", flush=True)
                 if status.get("joined"):
                     btn_name = status.get("button_text") or "Ask to join"
-                    print(f"[Google Meet] SUCCESS: Tapped '{btn_name}' strictly quick!", flush=True)
+                    add_activity_log("info", f"Tapped '{btn_name}' to join Google Meet lobby.")
                     joined = True
                     break
         except Exception:
             pass
 
-        # Redundancy: send Ctrl+D and Ctrl+E keyboard shortcuts on 2nd attempt
         if attempt == 2:
             try:
                 body = global_driver.find_element(By.TAG_NAME, "body")
@@ -993,7 +876,6 @@ def join_google_meet(meet_link, audio_thread=None):
                 pass
 
     if not joined:
-        # Final fallback via XPath click if JS query didn't find button
         for sel in [
             "//button[contains(., 'Ask to join') or contains(., 'Join now')]",
             "//button[.//span[contains(text(),'Ask to join') or contains(text(),'Join now')]]",
@@ -1003,67 +885,45 @@ def join_google_meet(meet_link, audio_thread=None):
                 join_button = global_driver.find_element(By.XPATH, sel)
                 if join_button.is_displayed():
                     global_driver.execute_script("arguments[0].click();", join_button)
-                    print(f"[Google Meet] SUCCESS: Tapped '{join_button.text.strip()}' button!", flush=True)
+                    add_activity_log("info", f"Tapped '{join_button.text.strip()}' button.")
                     joined = True
                     break
             except Exception:
                 continue
 
-    if not joined:
-        print("[Google Meet] Notice: You can also tap 'Ask to join' directly on the Chrome window.", flush=True)
-
-    print("[Google Meet] Staying on this single tab. Monitoring meeting session...", flush=True)
-
-    if audio_thread is None or not audio_thread.is_alive():
-        audio_thread = Thread(target=capture_audio_from_device, daemon=True)
-        audio_thread.start()
+    update_session_status("in_meeting", "Live in Google Meet room! Listening to lecture & monitoring attendance.")
 
     # Start Google Meet Closed Caption & Speaker STT monitor thread
     caption_thread = Thread(target=monitor_captions_loop, daemon=True)
     caption_thread.start()
 
-    print("\n" + "=" * 65)
-    print(">>> AI STUDENT AGENT IS LIVE IN THE MEETING! <<<")
-    print(">>> Listening to lecture audio & monitoring captions in real-time.")
-    print(">>> Automatically responds to attendance calls or questions in chat.")
-    print(">>> Press 'q' then ENTER in this terminal when class ends to generate Notion notes.")
-    print("=" * 65 + "\n")
-
-    # Clear any residual keystrokes in Windows stdin buffer
-    if sys.platform == "win32":
-        try:
-            import msvcrt
-            while msvcrt.kbhit():
-                msvcrt.getch()
-        except Exception:
-            pass
-
-    if os.path.exists("stop_meeting.flag"):
-        try:
-            os.remove("stop_meeting.flag")
-        except Exception:
-            pass
-
     start_time = time.time()
     try:
-        print("[Google Meet] Agent is active in meeting. Monitoring audio & captions in real-time...", flush=True)
-        print(">>> Press 'q' in this terminal when class finishes to generate Notion notes.\n", flush=True)
         while is_running:
             if os.path.exists("stop_meeting.flag"):
-                print("[Google Meet] Stop flag detected. Ending meeting and generating notes...", flush=True)
+                print("[Google Meet] Stop flag detected. Ending meeting...", flush=True)
                 try:
                     os.remove("stop_meeting.flag")
                 except Exception:
                     pass
                 break
 
+            # If user closed the Chrome window directly
+            if global_driver:
+                try:
+                    _ = global_driver.title
+                except Exception:
+                    print("[Google Meet] Chrome window was closed. Ending meeting...", flush=True)
+                    break
+
+            # Support console 'q' key
             if sys.platform == "win32" and sys.stdin and sys.stdin.isatty():
                 try:
                     import msvcrt
                     if msvcrt.kbhit():
                         ch = msvcrt.getch()
                         if ch in [b'q', b'Q'] and (time.time() - start_time > 3):
-                            print("\n[Google Meet] 'q' detected. Class ended by student. Generating notes...", flush=True)
+                            print("\n[Google Meet] 'q' detected. Class ended by student.", flush=True)
                             break
                 except Exception:
                     pass
@@ -1076,22 +936,14 @@ def join_google_meet(meet_link, audio_thread=None):
 
 
 def send_message_to_chat(message):
-    """
-    Automates sending an attendance response (e.g. 'Present!') or Q&A answer directly
-    into the Google Meet right-side chat section.
-    """
+    """Automates sending an attendance response or Q&A answer into Google Meet chat."""
     global global_driver
 
     if not global_driver:
-        print("[Chat] Notice: Browser driver not active, skipping chat dispatch.", flush=True)
         return False
 
-    print(f"\n[Chat] Preparing to send automated message to Google Meet chat: '{message}'...", flush=True)
-
-    # Allow up to 10 attempts in case user is just being admitted or the chat panel is opening
     for attempt in range(10):
         try:
-            # 1. Check if the chat input is already open and visible
             chat_state = global_driver.execute_script("""
                 const inputs = Array.from(document.querySelectorAll('textarea, div[role="textbox"][contenteditable="true"]'));
                 for (const inp of inputs) {
@@ -1100,14 +952,12 @@ def send_message_to_chat(message):
                     }
                 }
 
-                // Check if the side chat panel is already open
                 const panel = document.querySelector('div[aria-label*="messages" i], div[aria-label*="Chat" i], div[data-tab-id="2"]');
                 const isPanelOpen = panel && panel.offsetParent !== null;
 
                 return { open: isPanelOpen, has_input: false };
             """)
 
-            # 2. If the chat panel is NOT open, click the chat toggle button (speech bubble icon)
             if not chat_state or not chat_state.get("open"):
                 opened = global_driver.execute_script("""
                     const chatBtns = Array.from(document.querySelectorAll('button'));
@@ -1120,11 +970,8 @@ def send_message_to_chat(message):
                     }
                     return false;
                 """)
-                if opened:
-                    print("[Chat] Opened right-side chat section.", flush=True)
                 time.sleep(0.8)
 
-            # 3. Inject message and click the Send button (paper plane icon)
             res = global_driver.execute_script("""
                 const msg = arguments[0];
                 const inputs = Array.from(document.querySelectorAll('textarea, div[role="textbox"][contenteditable="true"]'));
@@ -1138,10 +985,9 @@ def send_message_to_chat(message):
                 }
 
                 if (!targetInput) {
-                    return { success: false, reason: "Chat input not ready yet (e.g. waiting to be admitted)" };
+                    return { success: false, reason: "Chat input not ready yet" };
                 }
 
-                // Populate text into input and trigger events
                 targetInput.focus();
                 if (targetInput.tagName.toLowerCase() === 'textarea') {
                     targetInput.value = msg;
@@ -1152,7 +998,6 @@ def send_message_to_chat(message):
                     targetInput.dispatchEvent(new InputEvent('input', { bubbles: true }));
                 }
 
-                // Find and click the Send button (paper plane icon)
                 const sendBtns = Array.from(document.querySelectorAll('button'));
                 for (const sb of sendBtns) {
                     const aria = (sb.getAttribute('aria-label') || '').toLowerCase();
@@ -1172,127 +1017,421 @@ def send_message_to_chat(message):
                         active.send_keys(Keys.RETURN)
                     except Exception:
                         pass
-                print(f"✅ [Chat] Successfully sent '{message}' into Google Meet chat!", flush=True)
+                print(f"✅ [Chat] Sent '{message}' into Google Meet chat!", flush=True)
                 return True
 
             time.sleep(0.8)
         except Exception:
             time.sleep(0.8)
 
-    # 4. Fallback: Selenium Native Input & Send
-    try:
-        input_selectors = [
-            "//textarea[contains(@aria-label, 'message') or contains(@aria-label, 'Send')]",
-            "//textarea[@name='chatTextInput']",
-            "//textarea",
-            "//div[@role='textbox']",
-        ]
-        for sel in input_selectors:
-            try:
-                inputs = global_driver.find_elements(By.XPATH, sel)
-                for inp in inputs:
-                    if inp.is_displayed() and inp.is_enabled():
-                        inp.clear()
-                        inp.send_keys(message)
-                        time.sleep(0.3)
-                        # Click send button
-                        send_btns = global_driver.find_elements(By.XPATH, "//button[contains(@aria-label, 'Send') or @jsname='soHxf']")
-                        sent = False
-                        for sb in send_btns:
-                            if sb.is_displayed() and sb.is_enabled():
-                                sb.click()
-                                sent = True
-                                break
-                        if not sent:
-                            inp.send_keys(Keys.RETURN)
-                        print(f"✅ [Chat] Fallback: Sent '{message}' to Google Meet chat!", flush=True)
-                        return True
-            except Exception:
-                continue
-    except Exception as e:
-        print(f"[Chat] Fallback note: {e}", flush=True)
-
-    print(f"[Chat] Notice: Message '{message}' will be sent as soon as you are admitted to the meeting room.", flush=True)
     return False
 
 
-if __name__ == "__main__":
-    signal.signal(signal.SIGINT, handle_exit)
+def run_meeting_session(meet_link):
+    """
+    Dedicated worker thread that runs the full end-to-end meeting session:
+    1. Starts audio capture and Vosk speech recognition.
+    2. Automates Chrome to join the user-provided Google Meet link.
+    3. Listens to lecture and handles attendance in real-time.
+    4. Compiles final notes with Gemini AI and syncs to Notion upon completion.
+    """
+    global is_running, global_driver, session_transcript_lines, recording_frames
 
-    # 1. Start Flask API server
-    flask_thread = Thread(target=start_flask_app, daemon=True)
-    flask_thread.start()
-    time.sleep(0.5)
+    print(f"\n[Session] Starting background runner for: {meet_link}", flush=True)
 
-    # 2. Audio Capture Thread & Speech Recognition Worker
     audio_thread = Thread(target=capture_audio_from_device, daemon=True)
     audio_thread.start()
 
     vosk_thread = Thread(target=speech_recognition_worker, daemon=True)
     vosk_thread.start()
 
-    # 3. Run Google Meet automation
-    join_google_meet(GMEET_LINK, audio_thread)
+    try:
+        join_google_meet(meet_link, audio_thread)
+    except Exception as e:
+        print(f"[Session] Exception in join_google_meet: {e}", flush=True)
+        update_session_status("error", f"Meeting error: {e}", error=str(e))
+        add_activity_log("error", f"Meeting error: {e}")
+        is_running = False
+        return
 
-    # 4. Stop capture loop
+    # Post-meeting processing
     is_running = False
-    print("\n[Notes] Class finished. Processing final notes...", flush=True)
+    with session_lock:
+        session_state["end_time"] = time.time()
+    update_session_status("generating_notes", "Class finished. Compiling lecture transcript...")
+    add_activity_log("info", "Meeting ended. Compiling lecture transcript and generating AI notes...")
     time.sleep(1.5)
 
-    # 5. Compile final lecture transcript
-    # Primary: Real-time speaker-attributed captions captured directly from Google Meet
+    # 1. Compile final lecture transcript
     transcript = ""
     if session_transcript_lines:
-        print(f"[Notes] Using real-time speaker-attributed lecture transcript ({len(session_transcript_lines)} dialogue entries).", flush=True)
+        print(f"[Notes] Using real-time transcript ({len(session_transcript_lines)} dialogue entries).", flush=True)
         transcript = "\n".join(session_transcript_lines).strip()
     elif os.path.exists("transcript.txt") and os.path.getsize("transcript.txt") > 10:
         with open("transcript.txt", "r", encoding="utf-8") as f:
-            content = f.read().strip()
-            if content:
-                print("[Notes] Using transcript saved in 'transcript.txt'.", flush=True)
-                transcript = content
+            transcript = f.read().strip()
 
-    # Fallback: Transcribe session audio debug_audio.wav using Google Gemini Multimodal STT
+    # 2. Multimodal STT Fallback if needed
     if not transcript or len(transcript.split()) < 5:
-        print("[Notes] Captions empty or sparse, attempting Gemini multimodal transcription of 'debug_audio.wav'...", flush=True)
+        update_session_status("generating_notes", "Analyzing session audio with Gemini multimodal...")
         audio_transcript = gemini_transcript("debug_audio.wav")
         if audio_transcript and len(audio_transcript.split()) >= 5:
             transcript = audio_transcript
 
+    with session_lock:
+        session_state["transcript"] = transcript
+
+    notes = ""
     if transcript and len(transcript.strip().split()) >= 5:
-        print("\n" + "=" * 50)
-        print(" FINAL LECTURE TRANSCRIPT:")
-        print(transcript.strip())
-        print("=" * 50)
-
-        print("\n[AI] Formatting notes using Google Gemini...")
+        update_session_status("generating_notes", "Formatting structured notes with Google Gemini 3.8 Flash...")
         notes = gemini_make_notes(transcript)
-        print("\n" + "=" * 50)
-        print(" GENERATED NOTES:")
-        print(notes)
-        print("=" * 50)
+        with session_lock:
+            session_state["notes"] = notes
+        add_activity_log("info", "Lecture notes generated successfully by Gemini.")
 
-        # 6. Push to Notion
+        # 3. Notion Integration
         if NOTION_API_TOKEN and NOTION_PAGE_ID:
-            print("\n[Notion] Uploading notes to Notion...")
-            from datetime import datetime
-            timestamp_str = datetime.now().strftime("%b %d, %Y %I:%M %p")
-            notes_to_notion(
-                NOTION_API_TOKEN,
-                NOTION_PAGE_ID,
-                notes,
-                title=f"Class Notes - {STUDENT_NAME} ({timestamp_str})",
-            )
+            update_session_status("generating_notes", "Uploading notes to Notion...")
+            try:
+                from datetime import datetime
+                timestamp_str = datetime.now().strftime("%b %d, %Y %I:%M %p")
+                page_title = f"Class Notes - {STUDENT_NAME} ({timestamp_str})"
+                notes_to_notion(
+                    NOTION_API_TOKEN,
+                    NOTION_PAGE_ID,
+                    notes,
+                    title=page_title,
+                )
+                with session_lock:
+                    session_state["notion_uploaded"] = True
+                    session_state["notion_title"] = page_title
+                add_activity_log("info", f"Successfully synced notes to Notion: '{page_title}'")
+            except Exception as ne:
+                with session_lock:
+                    session_state["notion_error"] = str(ne)
+                add_activity_log("error", f"Notion upload note: {ne}")
+
+        # 4. Generate Interactive Self-Evaluation Quiz from Notes
+        if notes and len(notes.strip()) > 30:
+            update_session_status("generating_notes", "Taking lecture notes to Gemini LLM to generate self-evaluation quiz...")
+            add_activity_log("info", "Generating self-evaluation quiz (5-10 questions) from notes...")
+            try:
+                quiz_data = gemini_generate_quiz(notes, num_questions=5)
+                with session_lock:
+                    session_state["quiz"] = quiz_data
+                if quiz_data:
+                    add_activity_log("info", f"Self-evaluation quiz generated successfully ({len(quiz_data)} questions).")
+            except Exception as qe:
+                print(f"[Quiz Generation Error]: {qe}", flush=True)
     else:
-        print("\n" + "=" * 50)
-        print("[Notes] Notice: No spoken lecture content was detected during this session.")
-        print("[Notes] Skipping Notion upload so blank or irrelevant notes are not created.")
-        print("=" * 50)
+        notes = "### Notice: No Spoken Lecture Detected\n\nNo spoken dialogue was detected during this session.\n\nPlease ensure your audio capture device or stereo mix is enabled while the instructor is speaking."
+        with session_lock:
+            session_state["notes"] = notes
+        add_activity_log("info", "No spoken dialogue detected. Skipping Notion upload.")
+
+    update_session_status("completed", "Lecture notes generated and ready!")
 
     if global_driver:
         try:
             global_driver.quit()
         except Exception:
             pass
+        global_driver = None
 
-    print("\nAI Student Agent completed successfully.")
+
+# ==========================================
+# FLASK REST API & WEB FRONT-END ROUTES
+# ==========================================
+
+@app.route("/")
+def index():
+    """Serves the front-end dashboard."""
+    return render_template("index.html")
+
+
+@app.route("/api/config")
+def get_config():
+    """Returns default student settings and Notion status."""
+    return jsonify({
+        "student_name": STUDENT_NAME,
+        "trigger_keywords": ", ".join(TRIGGER_KEYWORDS),
+        "notion_configured": bool(NOTION_API_TOKEN and NOTION_PAGE_ID),
+        "default_meet_link": GMEET_LINK,
+        "audio_device": AUDIO_DEVICE_NAME,
+    })
+
+
+@app.route("/api/start", methods=["POST"])
+def api_start():
+    """
+    Receives the Google Meet link from the front-end user and proceeds with automation.
+    """
+    global is_running, session_worker_thread, STUDENT_NAME, TRIGGER_KEYWORDS
+
+    if is_running:
+        return jsonify({"error": "A meeting session is already in progress."}), 400
+
+    data = request.get_json(silent=True) or {}
+    raw_link = data.get("meet_link", "").strip()
+    normalized_link, err = normalize_meet_link(raw_link)
+    if err:
+        return jsonify({"error": err}), 400
+
+    student_name = data.get("student_name", "").strip() or STUDENT_NAME
+    STUDENT_NAME = student_name
+    trigger_kw_str = data.get("trigger_keywords", "").strip()
+    if trigger_kw_str:
+        TRIGGER_KEYWORDS = [k.strip().lower() for k in trigger_kw_str.split(",") if k.strip()]
+
+    # Reset state and buffers for new session
+    with session_lock:
+        session_state["status"] = "launching"
+        session_state["message"] = f"Launching agent for: {normalized_link}"
+        session_state["meet_link"] = normalized_link
+        session_state["student_name"] = STUDENT_NAME
+        session_state["trigger_keywords"] = TRIGGER_KEYWORDS
+        session_state["start_time"] = time.time()
+        session_state["end_time"] = None
+        session_state["captions"] = []
+        session_state["activity_logs"] = []
+        session_state["notes"] = ""
+        session_state["transcript"] = ""
+        session_state["notion_uploaded"] = False
+        session_state["notion_title"] = ""
+        session_state["notion_error"] = None
+        session_state["error"] = None
+        session_state["quiz"] = []
+        session_state["quiz_result"] = None
+
+    session_transcript_lines.clear()
+    recording_frames.clear()
+    rolling_history.clear()
+    while not audio_queue.empty():
+        try:
+            audio_queue.get_nowait()
+        except Exception:
+            break
+
+    with open("transcript.txt", "w", encoding="utf-8") as f:
+        f.write("")
+
+    if os.path.exists("stop_meeting.flag"):
+        try:
+            os.remove("stop_meeting.flag")
+        except Exception:
+            pass
+
+    is_running = True
+    add_activity_log("info", f"Agent initialized for student '{STUDENT_NAME}'")
+    add_activity_log("info", f"Google Meet target link: {normalized_link}")
+
+    session_worker_thread = Thread(target=run_meeting_session, args=(normalized_link,), daemon=True)
+    session_worker_thread.start()
+
+    return jsonify({"status": "started", "meet_link": normalized_link})
+
+
+@app.route("/api/stop", methods=["POST"])
+def api_stop():
+    """Signals the meeting to stop and proceed with note generation."""
+    global is_running
+
+    if not is_running:
+        return jsonify({"status": "already_stopped"}), 200
+
+    is_running = False
+    try:
+        with open("stop_meeting.flag", "w") as f:
+            f.write("stop")
+    except Exception:
+        pass
+
+    update_session_status("generating_notes", "Class stopped. Compiling lecture notes with Gemini AI...")
+    add_activity_log("info", "User requested session stop. Generating notes...")
+    return jsonify({"status": "stopping", "message": "Stopping session and generating notes..."})
+
+
+@app.route("/api/reset", methods=["POST"])
+def api_reset():
+    """Resets session state back to idle."""
+    global is_running
+    if is_running:
+        return jsonify({"error": "Cannot reset while meeting is in progress."}), 400
+
+    with session_lock:
+        session_state["status"] = "idle"
+        session_state["message"] = "Ready to join Google Meet session."
+        session_state["meet_link"] = ""
+        session_state["start_time"] = None
+        session_state["captions"] = []
+        session_state["activity_logs"] = []
+        session_state["notes"] = ""
+        session_state["transcript"] = ""
+        session_state["notion_uploaded"] = False
+        session_state["error"] = None
+        session_state["quiz"] = []
+        session_state["quiz_result"] = None
+
+    return jsonify({"status": "reset"})
+
+
+@app.route("/api/status")
+def api_status():
+    """Returns real-time session state, timer, captions, logs, and generated notes."""
+    with session_lock:
+        elapsed = 0
+        if session_state["start_time"]:
+            if session_state["status"] in ["launching", "connecting", "in_meeting"]:
+                elapsed = int(time.time() - session_state["start_time"])
+            elif session_state["end_time"]:
+                elapsed = int(session_state["end_time"] - session_state["start_time"])
+
+        return jsonify({
+            "status": session_state["status"],
+            "message": session_state["message"],
+            "meet_link": session_state["meet_link"],
+            "student_name": session_state["student_name"],
+            "elapsed_seconds": elapsed,
+            "captions_count": len(session_state["captions"]),
+            "recent_captions": session_state["captions"][-40:],
+            "activity_logs": session_state["activity_logs"][-30:],
+            "notes": session_state["notes"],
+            "notion_uploaded": session_state["notion_uploaded"],
+            "notion_title": session_state["notion_title"],
+            "notion_error": session_state["notion_error"],
+            "error": session_state["error"],
+            "quiz": session_state.get("quiz", []),
+            "quiz_count": len(session_state.get("quiz", [])),
+            "quiz_result": session_state.get("quiz_result")
+        })
+
+
+
+
+@app.route("/api/quiz")
+def get_quiz():
+    """Returns currently generated quiz questions and quiz result."""
+    with session_lock:
+        quiz = session_state.get("quiz", [])
+        notes = session_state.get("notes", "")
+        return jsonify({
+            "quiz": quiz,
+            "total": len(quiz),
+            "has_notes": bool(notes),
+            "quiz_result": session_state.get("quiz_result")
+        })
+
+
+@app.route("/api/quiz/generate", methods=["POST"])
+def api_generate_quiz():
+    """Generates or regenerates a 5-10 question quiz from lecture notes."""
+    data = request.get_json(silent=True) or {}
+    num_q = int(data.get("num_questions", 5))
+    num_q = max(5, min(10, num_q))
+
+    notes = session_state.get("notes", "")
+    if not notes:
+        if session_state.get("transcript"):
+            notes = gemini_make_notes(session_state["transcript"])
+            with session_lock:
+                session_state["notes"] = notes
+        else:
+            return jsonify({"error": "No lecture notes found to generate a quiz. Please complete a class session or generate notes first."}), 400
+
+    update_session_status(session_state["status"], f"Generating {num_q}-question quiz with Gemini LLM...")
+    add_activity_log("info", f"Generating {num_q} quiz questions from lecture notes with Gemini...")
+    quiz_data = gemini_generate_quiz(notes, num_questions=num_q)
+    with session_lock:
+        session_state["quiz"] = quiz_data
+        session_state["quiz_result"] = None
+
+    return jsonify({
+        "status": "success",
+        "quiz": quiz_data,
+        "total": len(quiz_data)
+    })
+
+
+@app.route("/api/quiz/submit", methods=["POST"])
+def api_submit_quiz():
+    """Evaluates student quiz answers and provides diagnostic feedback."""
+    data = request.get_json(silent=True) or {}
+    answers = data.get("answers", {})
+    quiz = session_state.get("quiz", [])
+    notes = session_state.get("notes", "")
+
+    if not quiz:
+        return jsonify({"error": "No active quiz to evaluate."}), 400
+
+    eval_result = gemini_evaluate_quiz(notes, quiz, answers)
+    with session_lock:
+        session_state["quiz_result"] = eval_result
+    add_activity_log("info", f"Self-evaluation submitted: {eval_result['score']}/{eval_result['total']} ({eval_result['percentage']}%) - {eval_result['mastery_level']}")
+    return jsonify(eval_result)
+
+@app.route("/api/download/notes")
+def download_notes():
+    """Downloads generated notes as Markdown file."""
+    notes = session_state.get("notes", "")
+    filename = f"Class_Notes_{time.strftime('%Y%m%d_%H%M%S')}.md"
+    return Response(
+        notes,
+        mimetype="text/markdown",
+        headers={"Content-Disposition": f"attachment;filename={filename}"}
+    )
+
+
+@app.route("/api/download/transcript")
+def download_transcript():
+    """Downloads lecture transcript as plain text file."""
+    transcript = session_state.get("transcript", "")
+    if not transcript and os.path.exists("transcript.txt"):
+        with open("transcript.txt", "r", encoding="utf-8") as f:
+            transcript = f.read()
+    filename = f"Lecture_Transcript_{time.strftime('%Y%m%d_%H%M%S')}.txt"
+    return Response(
+        transcript,
+        mimetype="text/plain",
+        headers={"Content-Disposition": f"attachment;filename={filename}"}
+    )
+
+
+@app.route("/process_audio", methods=["POST"])
+def process_audio():
+    """Flask endpoint for receiving streaming audio chunks."""
+    try:
+        audio_data = request.data
+        try:
+            audio_queue.put_nowait(audio_data)
+        except queue.Full:
+            pass
+        return jsonify({"status": "Queued"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+if __name__ == "__main__":
+    signal.signal(signal.SIGINT, handle_exit)
+
+    print("\n" + "=" * 65)
+    print(" 🚀 AI STUDENT AGENT - WEB INTERFACE READY")
+    print("=" * 65)
+    print("  Student Name:       ", STUDENT_NAME)
+    print("  Attendance Keywords:", TRIGGER_KEYWORDS)
+    print("  Notion Integration: ", "Enabled" if (NOTION_API_TOKEN and NOTION_PAGE_ID) else "Not configured in .env")
+    print("  Dashboard URL:       http://localhost:5000")
+    print("=" * 65)
+    print(" Opening web dashboard in your browser...")
+    print(" Enter your Google Meet link on the dashboard to proceed.\n")
+
+    def open_browser():
+        time.sleep(1.2)
+        try:
+            import webbrowser
+            webbrowser.open("http://localhost:5000")
+        except Exception:
+            pass
+
+    Thread(target=open_browser, daemon=True).start()
+
+    app.run(host="0.0.0.0", port=5000, debug=False, use_reloader=False, threaded=True)

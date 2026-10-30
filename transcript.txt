@@ -1,25 +1,9 @@
-[Speech]: who who who
-[Speech]: hello
-[Speech]: the nation of which are you
-[Speech]: the woman
-[Speech]: now
-[Speech]: don't win the tournament
-[Speech]: the memes
-[Speech]: please shut your mouth
-[Speech]: or else i'll kick your ass
-[Speech]: today's topic
-[Speech]: natural language processing one of my friends as an application named as vader
-[Speech]: a lot of
-[Speech]: patients who have been women
-[Speech]: last few days
-[Speech]: the application will give the day
-[4]: 56 PM Present! Hover over a message to pin it keep keep Pin message
-[Speech]: the report say the ball and bad shape
-[4]: 56 PM Present! Hover over a message to pin it keep keep Pin message Present! keep Pin message
-[Speech]: i'm president
-[4]: 56 PM Present! Hover over a message to pin it keep keep Pin message Present! keep Pin message Present! keep Pin message
-[4]: 56 PM Present! Hover over a message to pin it keep keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message
-[Speech]: we will trigger
-[4]: 56 PM Present! Hover over a message to pin it keep keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message
-[4]: 56 PM Present! Hover over a message to pin it keep keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message
-[4]: 56 PM Present! Hover over a message to pin it keep keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message Present! keep Pin message
+[Audio Feed (Vosk)]: hello
+[Audio Feed (Vosk)]: am one jones
+[Audio Feed (Vosk)]: and i'm here to share my experience
+[Audio Feed (Vosk)]: which i recently bought
+[Audio Feed (Vosk)]: name an hour
+[Audio Feed (Vosk)]: i've got to learn many things like dog
+[Audio Feed (Vosk)]: and
+[Audio Feed (Vosk)]: computing running late
+[Audio Feed (Vosk)]: and all

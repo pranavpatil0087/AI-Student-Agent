@@ -1,0 +1,7133 @@
+[
+  {
+    "slide_index": 1,
+    "shapes": [
+      {
+        "name": "Google Shape;111;p11",
+        "type": "PLACEHOLDER (14)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "1",
+            "runs": []
+          }
+        ]
+      },
+      {
+        "name": "Picture 2",
+        "type": "PICTURE (13)",
+        "left": 4.5,
+        "top": 4.95,
+        "width": 1.0,
+        "height": 1.14
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 2.5,
+        "top": 6.2,
+        "width": 5.0,
+        "height": 0.81,
+        "paragraphs": [
+          {
+            "text": "Department of Information Technology",
+            "runs": [
+              {
+                "text": "Department of Information Technology",
+                "bold": true,
+                "size": 14.0,
+                "color": null,
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "MPSTME, SVKM\u2019s NMIMS Shirpur Campus",
+            "runs": [
+              {
+                "text": "MPSTME, SVKM\u2019s NMIMS Shirpur Campus",
+                "bold": true,
+                "size": 14.0,
+                "color": null,
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "2026-27",
+            "runs": [
+              {
+                "text": "2026-27",
+                "bold": true,
+                "size": 14.0,
+                "color": null,
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 111",
+        "type": "TEXT_BOX (17)",
+        "left": 0.75,
+        "top": 1.2,
+        "width": 8.5,
+        "height": 3.6,
+        "paragraphs": [
+          {
+            "text": "Final Project Presentation",
+            "runs": [
+              {
+                "text": "Final Project Presentation",
+                "bold": true,
+                "size": 18.0,
+                "color": "000000",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "on",
+            "runs": [
+              {
+                "text": "on",
+                "bold": true,
+                "size": 16.0,
+                "color": "000000",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "\u201cMedIntel AI: Intelligent Medical Report Analyzer Using Machine Learning and Generative AI\u201d",
+            "runs": [
+              {
+                "text": "\u201cMedIntel AI: Intelligent Medical Report Analyzer Using Machine Learning and Generative AI\u201d",
+                "bold": true,
+                "size": 18.0,
+                "color": "000000",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "By",
+            "runs": [
+              {
+                "text": "By",
+                "bold": true,
+                "size": 16.0,
+                "color": "000000",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Name of Students",
+            "runs": [
+              {
+                "text": "Name of Students",
+                "bold": true,
+                "size": 16.0,
+                "color": "000000",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 2,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Problem Statement",
+            "runs": [
+              {
+                "text": "Problem Statement",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "2",
+            "runs": [
+              {
+                "text": "2",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 3",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 2.0,
+        "width": 5.0,
+        "height": 4.8,
+        "paragraphs": [
+          {
+            "text": "Medical literacy gap: lab reports use dense terms, units and reference ranges that patients cannot i",
+            "runs": [
+              {
+                "text": "Medical literacy gap: ",
+                "bold": true,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "lab reports use dense terms, units and reference ranges that patients cannot interpret.",
+                "bold": false,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Indian report formats: values such as \u201c2.33 Lakhs/cumm\u201d or \u201c1,50,000\u201d break generic tools.",
+            "runs": [
+              {
+                "text": "Indian report formats: ",
+                "bold": true,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "values such as \u201c2.33 Lakhs/cumm\u201d or \u201c1,50,000\u201d break generic tools.",
+                "bold": false,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Prescription shorthand: handwritten names and codes like 1-0-1, BD, TDS cause dosing confusion.",
+            "runs": [
+              {
+                "text": "Prescription shorthand: ",
+                "bold": true,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "handwritten names and codes like 1-0-1, BD, TDS cause dosing confusion.",
+                "bold": false,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Language barrier: reports are in English; many patients read Hindi, Marathi or Gujarati.",
+            "runs": [
+              {
+                "text": "Language barrier: ",
+                "bold": true,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "reports are in English; many patients read Hindi, Marathi or Gujarati.",
+                "bold": false,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Unsafe AI answers: generic chatbots can guess values or imply a diagnosis.",
+            "runs": [
+              {
+                "text": "Unsafe AI answers: ",
+                "bold": true,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "generic chatbots can guess values or imply a diagnosis.",
+                "bold": false,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 4",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.75,
+        "top": 2.0,
+        "width": 3.8,
+        "height": 4.6,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 5.9,
+        "top": 2.08,
+        "width": 3.5,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "What the patient sees",
+            "runs": [
+              {
+                "text": "What the patient sees",
+                "bold": true,
+                "size": 14.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 6",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.9,
+        "top": 2.55,
+        "width": 3.5,
+        "height": 0.45,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 7",
+        "type": "TEXT_BOX (17)",
+        "left": 6.0,
+        "top": 2.6,
+        "width": 1.6,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Platelet Count",
+            "runs": [
+              {
+                "text": "Platelet Count",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 8",
+        "type": "TEXT_BOX (17)",
+        "left": 7.55,
+        "top": 2.6,
+        "width": 1.45,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "2.33 Lakhs/cumm",
+            "runs": [
+              {
+                "text": "2.33 Lakhs/cumm",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 9.0,
+        "top": 2.59,
+        "width": 0.35,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "?",
+            "runs": [
+              {
+                "text": "?",
+                "bold": true,
+                "size": 14.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 10",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.9,
+        "top": 3.1,
+        "width": 3.5,
+        "height": 0.45,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 11",
+        "type": "TEXT_BOX (17)",
+        "left": 6.0,
+        "top": 3.15,
+        "width": 1.6,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "S. Creatinine",
+            "runs": [
+              {
+                "text": "S. Creatinine",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 12",
+        "type": "TEXT_BOX (17)",
+        "left": 7.55,
+        "top": 3.15,
+        "width": 1.45,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "1.8 mg/dL",
+            "runs": [
+              {
+                "text": "1.8 mg/dL",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 9.0,
+        "top": 3.14,
+        "width": 0.35,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "?",
+            "runs": [
+              {
+                "text": "?",
+                "bold": true,
+                "size": 14.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 14",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.9,
+        "top": 3.65,
+        "width": 3.5,
+        "height": 0.45,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 15",
+        "type": "TEXT_BOX (17)",
+        "left": 6.0,
+        "top": 3.7,
+        "width": 1.6,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "FBS",
+            "runs": [
+              {
+                "text": "FBS",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 16",
+        "type": "TEXT_BOX (17)",
+        "left": 7.55,
+        "top": 3.7,
+        "width": 1.45,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "165 mg/dL",
+            "runs": [
+              {
+                "text": "165 mg/dL",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 17",
+        "type": "TEXT_BOX (17)",
+        "left": 9.0,
+        "top": 3.69,
+        "width": 0.35,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "?",
+            "runs": [
+              {
+                "text": "?",
+                "bold": true,
+                "size": 14.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 18",
+        "type": "TEXT_BOX (17)",
+        "left": 5.9,
+        "top": 4.3,
+        "width": 3.5,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Rx (handwritten)",
+            "runs": [
+              {
+                "text": "Rx (handwritten)",
+                "bold": true,
+                "size": 13.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 19",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.9,
+        "top": 4.7,
+        "width": 3.5,
+        "height": 1.15,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 20",
+        "type": "TEXT_BOX (17)",
+        "left": 6.0,
+        "top": 4.75,
+        "width": 3.3,
+        "height": 1.05,
+        "paragraphs": [
+          {
+            "text": "Tab. Glycomet 500  1-0-1  AC",
+            "runs": [
+              {
+                "text": "Tab. Glycomet 500  1-0-1  AC",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Tab. Telma 40  1-0-0",
+            "runs": [
+              {
+                "text": "Tab. Telma 40  1-0-0",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "When? Before food? How long?",
+            "runs": [
+              {
+                "text": "When? Before food? How long?",
+                "bold": true,
+                "size": 12.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 3,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Motivation and Need of the Project",
+            "runs": [
+              {
+                "text": "Motivation and Need of the Project",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "3",
+            "runs": [
+              {
+                "text": "3",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 2.65,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 4",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 0.58,
+        "top": 2.07,
+        "width": 2.69,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Anxiety and delay",
+            "runs": [
+              {
+                "text": "Anxiety and delay",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 2.55,
+        "width": 2.65,
+        "height": 2.1,
+        "paragraphs": [
+          {
+            "text": "Patients wait days for the next consultation to understand a result",
+            "runs": [
+              {
+                "text": "Patients wait days for the next consultation to understand a result",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "A real abnormal value may be ignored",
+            "runs": [
+              {
+                "text": "A real abnormal value may be ignored",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 7",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.55,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 2.65,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.55,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 3.63,
+        "top": 2.07,
+        "width": 2.69,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Dosing errors",
+            "runs": [
+              {
+                "text": "Dosing errors",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 3.65,
+        "top": 2.55,
+        "width": 2.65,
+        "height": 2.1,
+        "paragraphs": [
+          {
+            "text": "Misreading frequency or meal timing is a common source of medication error",
+            "runs": [
+              {
+                "text": "Misreading frequency or meal timing is a common source of medication error",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Handwriting makes it worse",
+            "runs": [
+              {
+                "text": "Handwriting makes it worse",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 11",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.6,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 2.65,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 12",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.6,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 6.68,
+        "top": 2.07,
+        "width": 2.69,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "AI is ready, but unsafe",
+            "runs": [
+              {
+                "text": "AI is ready, but unsafe",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 14",
+        "type": "TEXT_BOX (17)",
+        "left": 6.7,
+        "top": 2.55,
+        "width": 2.65,
+        "height": 2.1,
+        "paragraphs": [
+          {
+            "text": "OCR, ML and LLMs can read and explain documents",
+            "runs": [
+              {
+                "text": "OCR, ML and LLMs can read and explain documents",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Without guardrails they invent values or diagnose",
+            "runs": [
+              {
+                "text": "Without guardrails they invent values or diagnose",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 15",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 5.0,
+        "width": 9.0,
+        "height": 1.6,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 16",
+        "type": "TEXT_BOX (17)",
+        "left": 0.75,
+        "top": 5.1,
+        "width": 8.5,
+        "height": 1.4,
+        "paragraphs": [
+          {
+            "text": "Need: a mobile tool that reads reports and prescriptions, makes the patient confirm the data, explai",
+            "runs": [
+              {
+                "text": "Need: ",
+                "bold": true,
+                "size": 16.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "a mobile tool that reads reports and prescriptions, makes the patient confirm the data, explains it in plain language in their own language, and never crosses into diagnosis or treatment advice.",
+                "bold": false,
+                "size": 16.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 4,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Objectives",
+            "runs": [
+              {
+                "text": "Objectives",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "4",
+            "runs": [
+              {
+                "text": "4",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 4.55,
+        "paragraphs": []
+      },
+      {
+        "name": "Oval 4",
+        "type": "AUTO_SHAPE (1)",
+        "left": 1.65,
+        "top": 2.2,
+        "width": 0.55,
+        "height": 0.55,
+        "paragraphs": [
+          {
+            "text": "1",
+            "runs": [
+              {
+                "text": "1",
+                "bold": true,
+                "size": 18.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 2.85,
+        "width": 2.65,
+        "height": 0.65,
+        "paragraphs": [
+          {
+            "text": "Simplify Medical Reports",
+            "runs": [
+              {
+                "text": "Simplify Medical Reports",
+                "bold": true,
+                "size": 16.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 0.62,
+        "top": 3.55,
+        "width": 2.6,
+        "height": 3.0,
+        "paragraphs": [
+          {
+            "text": "Read digital PDFs and scanned images",
+            "runs": [
+              {
+                "text": "Read digital PDFs and scanned images",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Patient verifies extracted values",
+            "runs": [
+              {
+                "text": "Patient verifies extracted values",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Rule-based LOW / NORMAL / HIGH / CRITICAL",
+            "runs": [
+              {
+                "text": "Rule-based LOW / NORMAL / HIGH / CRITICAL",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Plain explanation in EN, HI, MR, GU",
+            "runs": [
+              {
+                "text": "Plain explanation in EN, HI, MR, GU",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 7",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.55,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 4.55,
+        "paragraphs": []
+      },
+      {
+        "name": "Oval 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.7,
+        "top": 2.2,
+        "width": 0.55,
+        "height": 0.55,
+        "paragraphs": [
+          {
+            "text": "2",
+            "runs": [
+              {
+                "text": "2",
+                "bold": true,
+                "size": 18.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 3.65,
+        "top": 2.85,
+        "width": 2.65,
+        "height": 0.65,
+        "paragraphs": [
+          {
+            "text": "Understand Prescriptions",
+            "runs": [
+              {
+                "text": "Understand Prescriptions",
+                "bold": true,
+                "size": 16.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 3.67,
+        "top": 3.55,
+        "width": 2.6,
+        "height": 3.0,
+        "paragraphs": [
+          {
+            "text": "Read photo, PDF or typed prescription",
+            "runs": [
+              {
+                "text": "Read photo, PDF or typed prescription",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Extract medicine, dose, frequency, timing",
+            "runs": [
+              {
+                "text": "Extract medicine, dose, frequency, timing",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Morning / noon / night schedule",
+            "runs": [
+              {
+                "text": "Morning / noon / night schedule",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Flag uncertain items for confirmation",
+            "runs": [
+              {
+                "text": "Flag uncertain items for confirmation",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 11",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.6,
+        "top": 2.05,
+        "width": 2.85,
+        "height": 4.55,
+        "paragraphs": []
+      },
+      {
+        "name": "Oval 12",
+        "type": "AUTO_SHAPE (1)",
+        "left": 7.75,
+        "top": 2.2,
+        "width": 0.55,
+        "height": 0.55,
+        "paragraphs": [
+          {
+            "text": "3",
+            "runs": [
+              {
+                "text": "3",
+                "bold": true,
+                "size": 18.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 6.7,
+        "top": 2.85,
+        "width": 2.65,
+        "height": 0.65,
+        "paragraphs": [
+          {
+            "text": "Actionable Health Insights",
+            "runs": [
+              {
+                "text": "Actionable Health Insights",
+                "bold": true,
+                "size": 16.0,
+                "color": "3F8F5C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 14",
+        "type": "TEXT_BOX (17)",
+        "left": 6.72,
+        "top": 3.55,
+        "width": 2.6,
+        "height": 3.0,
+        "paragraphs": [
+          {
+            "text": "Diabetes, heart and kidney risk models",
+            "runs": [
+              {
+                "text": "Diabetes, heart and kidney risk models",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "LOW / MODERATE / ELEVATED risk bands",
+            "runs": [
+              {
+                "text": "LOW / MODERATE / ELEVATED risk bands",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Private per-user history and trends",
+            "runs": [
+              {
+                "text": "Private per-user history and trends",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Educational guidance with disclaimers",
+            "runs": [
+              {
+                "text": "Educational guidance with disclaimers",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 5,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Scope of the Project",
+            "runs": [
+              {
+                "text": "Scope of the Project",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "5",
+            "runs": [
+              {
+                "text": "5",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 2.0,
+        "width": 4.4,
+        "height": 2.15,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 4",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 2.0,
+        "width": 4.4,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 0.58,
+        "top": 2.02,
+        "width": 4.24,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Mobile App (Flutter)",
+            "runs": [
+              {
+                "text": "Mobile App (Flutter)",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 2.5,
+        "width": 4.2,
+        "height": 1.6,
+        "paragraphs": [
+          {
+            "text": "Upload, Verify, Results screens",
+            "runs": [
+              {
+                "text": "Upload, Verify, Results screens",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Prescription Explainer",
+            "runs": [
+              {
+                "text": "Prescription Explainer",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "History, trends and Settings",
+            "runs": [
+              {
+                "text": "History, trends and Settings",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Email / Google sign-in screen",
+            "runs": [
+              {
+                "text": "Email / Google sign-in screen",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 7",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 2.0,
+        "width": 4.4,
+        "height": 2.15,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 2.0,
+        "width": 4.4,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 5.18,
+        "top": 2.02,
+        "width": 4.24,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Backend (FastAPI)",
+            "runs": [
+              {
+                "text": "Backend (FastAPI)",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 5.2,
+        "top": 2.5,
+        "width": 4.2,
+        "height": 1.6,
+        "paragraphs": [
+          {
+            "text": "REST API under /api/v1",
+            "runs": [
+              {
+                "text": "REST API under /api/v1",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Token auth, user-scoped data",
+            "runs": [
+              {
+                "text": "Token auth, user-scoped data",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "SQLite via SQLAlchemy",
+            "runs": [
+              {
+                "text": "SQLite via SQLAlchemy",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Docker deployment",
+            "runs": [
+              {
+                "text": "Docker deployment",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 11",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 4.35,
+        "width": 4.4,
+        "height": 2.15,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 12",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 4.35,
+        "width": 4.4,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 0.58,
+        "top": 4.37,
+        "width": 4.24,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "AI and Analysis",
+            "runs": [
+              {
+                "text": "AI and Analysis",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 14",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 4.85,
+        "width": 4.2,
+        "height": 1.6,
+        "paragraphs": [
+          {
+            "text": "pdfplumber + Tesseract OCR",
+            "runs": [
+              {
+                "text": "pdfplumber + Tesseract OCR",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Rule-based reference engine",
+            "runs": [
+              {
+                "text": "Rule-based reference engine",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "3 scikit-learn risk models",
+            "runs": [
+              {
+                "text": "3 scikit-learn risk models",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Gemini explanations, TrOCR study",
+            "runs": [
+              {
+                "text": "Gemini explanations, TrOCR study",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 15",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 4.35,
+        "width": 4.4,
+        "height": 2.15,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 16",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 4.35,
+        "width": 4.4,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 17",
+        "type": "TEXT_BOX (17)",
+        "left": 5.18,
+        "top": 4.37,
+        "width": 4.24,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Safety and Scope Limits",
+            "runs": [
+              {
+                "text": "Safety and Scope Limits",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 18",
+        "type": "TEXT_BOX (17)",
+        "left": 5.2,
+        "top": 4.85,
+        "width": 4.2,
+        "height": 1.6,
+        "paragraphs": [
+          {
+            "text": "Educational tool, not a medical device",
+            "runs": [
+              {
+                "text": "Educational tool, not a medical device",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "No diagnosis, no treatment advice",
+            "runs": [
+              {
+                "text": "No diagnosis, no treatment advice",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Disclaimer on every result",
+            "runs": [
+              {
+                "text": "Disclaimer on every result",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Not clinically validated yet",
+            "runs": [
+              {
+                "text": "Not clinically validated yet",
+                "bold": false,
+                "size": 14.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 6,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Literature Review",
+            "runs": [
+              {
+                "text": "Literature Review",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "6",
+            "runs": [
+              {
+                "text": "6",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table 3",
+        "type": "TABLE (19)",
+        "left": 0.35,
+        "top": 1.9,
+        "width": 9.3,
+        "height": 4.34,
+        "table": {
+          "rows": 7,
+          "cols": 4
+        }
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.3,
+        "top": 6.92,
+        "width": 6.7,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Survey of 38 papers (2015-2026) following PRISMA 2020; full references on the final slide.",
+            "runs": [
+              {
+                "text": "Survey of 38 papers (2015-2026) following PRISMA 2020; full references on the final slide.",
+                "bold": false,
+                "size": 9.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 7,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Research Gaps Addressed",
+            "runs": [
+              {
+                "text": "Research Gaps Addressed",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "7",
+            "runs": [
+              {
+                "text": "7",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 1.98,
+        "width": 3.2,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 2.01,
+        "width": 3.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Unverified OCR data",
+            "runs": [
+              {
+                "text": "Unverified OCR data",
+                "bold": true,
+                "size": 14.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Right Arrow 5",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.8,
+        "top": 2.12,
+        "width": 0.45,
+        "height": 0.28,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 6",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.35,
+        "top": 1.98,
+        "width": 5.15,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 7",
+        "type": "TEXT_BOX (17)",
+        "left": 4.45,
+        "top": 2.01,
+        "width": 5.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Verification screen; server refuses ML and GenAI on unverified input",
+            "runs": [
+              {
+                "text": "Verification screen; server refuses ML and GenAI on unverified input",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 2.66,
+        "width": 3.2,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 2.69,
+        "width": 3.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Handwritten prescriptions",
+            "runs": [
+              {
+                "text": "Handwritten prescriptions",
+                "bold": true,
+                "size": 14.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Right Arrow 10",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.8,
+        "top": 2.8,
+        "width": 0.45,
+        "height": 0.28,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 11",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.35,
+        "top": 2.66,
+        "width": 5.15,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 12",
+        "type": "TEXT_BOX (17)",
+        "left": 4.45,
+        "top": 2.69,
+        "width": 5.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Gemini image reading + OCR fallback; TrOCR fine-tuned and benchmarked",
+            "runs": [
+              {
+                "text": "Gemini image reading + OCR fallback; TrOCR fine-tuned and benchmarked",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 13",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 3.34,
+        "width": 3.2,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 14",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 3.37,
+        "width": 3.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "No regional languages",
+            "runs": [
+              {
+                "text": "No regional languages",
+                "bold": true,
+                "size": 14.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Right Arrow 15",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.8,
+        "top": 3.48,
+        "width": 0.45,
+        "height": 0.28,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 16",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.35,
+        "top": 3.34,
+        "width": 5.15,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 17",
+        "type": "TEXT_BOX (17)",
+        "left": 4.45,
+        "top": 3.37,
+        "width": 5.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Explanations in English, Hindi, Marathi, Gujarati",
+            "runs": [
+              {
+                "text": "Explanations in English, Hindi, Marathi, Gujarati",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 18",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 4.02,
+        "width": 3.2,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 19",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 4.05,
+        "width": 3.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Medical jargon",
+            "runs": [
+              {
+                "text": "Medical jargon",
+                "bold": true,
+                "size": 14.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Right Arrow 20",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.8,
+        "top": 4.16,
+        "width": 0.45,
+        "height": 0.28,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 21",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.35,
+        "top": 4.02,
+        "width": 5.15,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 22",
+        "type": "TEXT_BOX (17)",
+        "left": 4.45,
+        "top": 4.05,
+        "width": 5.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Plain-language summaries from pre-computed results only",
+            "runs": [
+              {
+                "text": "Plain-language summaries from pre-computed results only",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 23",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 4.7,
+        "width": 3.2,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 24",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 4.73,
+        "width": 3.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Black-box outputs",
+            "runs": [
+              {
+                "text": "Black-box outputs",
+                "bold": true,
+                "size": 14.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Right Arrow 25",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.8,
+        "top": 4.84,
+        "width": 0.45,
+        "height": 0.28,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 26",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.35,
+        "top": 4.7,
+        "width": 5.15,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 27",
+        "type": "TEXT_BOX (17)",
+        "left": 4.45,
+        "top": 4.73,
+        "width": 5.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Rule-based classification with sources; risk shown as bands",
+            "runs": [
+              {
+                "text": "Rule-based classification with sources; risk shown as bands",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 28",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 5.38,
+        "width": 3.2,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 29",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 5.41,
+        "width": 3.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Single-snapshot view",
+            "runs": [
+              {
+                "text": "Single-snapshot view",
+                "bold": true,
+                "size": 14.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Right Arrow 30",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.8,
+        "top": 5.52,
+        "width": 0.45,
+        "height": 0.28,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 31",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.35,
+        "top": 5.38,
+        "width": 5.15,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 32",
+        "type": "TEXT_BOX (17)",
+        "left": 4.45,
+        "top": 5.41,
+        "width": 5.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Per-user history, unified timeline, biomarker trends",
+            "runs": [
+              {
+                "text": "Per-user history, unified timeline, biomarker trends",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 33",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 6.06,
+        "width": 3.2,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 34",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 6.09,
+        "width": 3.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "No pill schedule",
+            "runs": [
+              {
+                "text": "No pill schedule",
+                "bold": true,
+                "size": 14.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Right Arrow 35",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.8,
+        "top": 6.2,
+        "width": 0.45,
+        "height": 0.28,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 36",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.35,
+        "top": 6.06,
+        "width": 5.15,
+        "height": 0.56,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 37",
+        "type": "TEXT_BOX (17)",
+        "left": 4.45,
+        "top": 6.09,
+        "width": 5.0,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Morning / noon / night table with meal relation",
+            "runs": [
+              {
+                "text": "Morning / noon / night table with meal relation",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 8,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "System Architecture",
+            "runs": [
+              {
+                "text": "System Architecture",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "8",
+            "runs": [
+              {
+                "text": "8",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 3",
+        "type": "PICTURE (13)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 9.0,
+        "height": 3.39
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 5.55,
+        "width": 9.0,
+        "height": 1.3,
+        "paragraphs": [
+          {
+            "text": "Client: Flutter app with Cubit state management talks to the backend over REST/JSON.",
+            "runs": [
+              {
+                "text": "Client: ",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "Flutter app with Cubit state management talks to the backend over REST/JSON.",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Backend: FastAPI routes requests to six services; SQLite stores user data; models live outside Git.",
+            "runs": [
+              {
+                "text": "Backend: ",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "FastAPI routes requests to six services; SQLite stores user data; models live outside Git.",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "TrOCR: trained and evaluated as a standalone module (dotted link), not called by the live app.",
+            "runs": [
+              {
+                "text": "TrOCR: ",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "trained and evaluated as a standalone module (dotted link), not called by the live app.",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 9,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Proposed Methodology: End-to-End Workflow",
+            "runs": [
+              {
+                "text": "Proposed Methodology: End-to-End Workflow",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "9",
+            "runs": [
+              {
+                "text": "9",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Pentagon 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.4,
+        "top": 2.1,
+        "width": 1.6,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Upload",
+            "runs": [
+              {
+                "text": "Upload",
+                "bold": true,
+                "size": 13.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.45,
+        "top": 3.0,
+        "width": 1.4,
+        "height": 1.2,
+        "paragraphs": [
+          {
+            "text": "PDF / JPG / PNG up to 10 MB",
+            "runs": [
+              {
+                "text": "PDF / JPG / PNG up to 10 MB",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Chevron 5",
+        "type": "AUTO_SHAPE (1)",
+        "left": 1.95,
+        "top": 2.1,
+        "width": 1.6,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Extract",
+            "runs": [
+              {
+                "text": "Extract",
+                "bold": true,
+                "size": 13.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 2.0,
+        "top": 3.0,
+        "width": 1.4,
+        "height": 1.2,
+        "paragraphs": [
+          {
+            "text": "pdfplumber or Tesseract OCR",
+            "runs": [
+              {
+                "text": "pdfplumber or Tesseract OCR",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Chevron 7",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.5,
+        "top": 2.1,
+        "width": 1.6,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Verify",
+            "runs": [
+              {
+                "text": "Verify",
+                "bold": true,
+                "size": 13.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 8",
+        "type": "TEXT_BOX (17)",
+        "left": 3.55,
+        "top": 3.0,
+        "width": 1.4,
+        "height": 1.2,
+        "paragraphs": [
+          {
+            "text": "Patient confirms or corrects every value",
+            "runs": [
+              {
+                "text": "Patient confirms or corrects every value",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Chevron 9",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.05,
+        "top": 2.1,
+        "width": 1.6,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Analyze",
+            "runs": [
+              {
+                "text": "Analyze",
+                "bold": true,
+                "size": 13.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 5.1,
+        "top": 3.0,
+        "width": 1.4,
+        "height": 1.2,
+        "paragraphs": [
+          {
+            "text": "Reference rules + 3 ML risk models in parallel",
+            "runs": [
+              {
+                "text": "Reference rules + 3 ML risk models in parallel",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Chevron 11",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.6,
+        "top": 2.1,
+        "width": 1.6,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Explain",
+            "runs": [
+              {
+                "text": "Explain",
+                "bold": true,
+                "size": 13.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 12",
+        "type": "TEXT_BOX (17)",
+        "left": 6.65,
+        "top": 3.0,
+        "width": 1.4,
+        "height": 1.2,
+        "paragraphs": [
+          {
+            "text": "Gemini summary in 4 languages",
+            "runs": [
+              {
+                "text": "Gemini summary in 4 languages",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Chevron 13",
+        "type": "AUTO_SHAPE (1)",
+        "left": 8.15,
+        "top": 2.1,
+        "width": 1.6,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Save",
+            "runs": [
+              {
+                "text": "Save",
+                "bold": true,
+                "size": 13.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 14",
+        "type": "TEXT_BOX (17)",
+        "left": 8.2,
+        "top": 3.0,
+        "width": 1.4,
+        "height": 1.2,
+        "paragraphs": [
+          {
+            "text": "User-scoped history and trends",
+            "runs": [
+              {
+                "text": "User-scoped history and trends",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 15",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 4.3,
+        "width": 4.4,
+        "height": 2.45,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 16",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 4.3,
+        "width": 4.4,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 17",
+        "type": "TEXT_BOX (17)",
+        "left": 0.58,
+        "top": 4.32,
+        "width": 4.24,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Verification gate (step 3)",
+            "runs": [
+              {
+                "text": "Verification gate (step 3)",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 18",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 4.8,
+        "width": 4.2,
+        "height": 1.9,
+        "paragraphs": [
+          {
+            "text": "Every extracted value starts UNVERIFIED",
+            "runs": [
+              {
+                "text": "Every extracted value starts UNVERIFIED",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Patient edits, adds or removes values",
+            "runs": [
+              {
+                "text": "Patient edits, adds or removes values",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Only confirmed values reach analysis",
+            "runs": [
+              {
+                "text": "Only confirmed values reach analysis",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Server ML and GenAI refuse unverified input",
+            "runs": [
+              {
+                "text": "Server ML and GenAI refuse unverified input",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 19",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 4.3,
+        "width": 4.4,
+        "height": 2.45,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 20",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 4.3,
+        "width": 4.4,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 21",
+        "type": "TEXT_BOX (17)",
+        "left": 5.18,
+        "top": 4.32,
+        "width": 4.24,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Parallel analysis (step 4-5)",
+            "runs": [
+              {
+                "text": "Parallel analysis (step 4-5)",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 22",
+        "type": "TEXT_BOX (17)",
+        "left": 5.2,
+        "top": 4.8,
+        "width": 4.2,
+        "height": 1.9,
+        "paragraphs": [
+          {
+            "text": "Reference rules and 3 risk models run together",
+            "runs": [
+              {
+                "text": "Reference rules and 3 risk models run together",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "A failing service never hides the others",
+            "runs": [
+              {
+                "text": "A failing service never hides the others",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Explanation built only from computed results",
+            "runs": [
+              {
+                "text": "Explanation built only from computed results",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Language switch re-runs only the explanation",
+            "runs": [
+              {
+                "text": "Language switch re-runs only the explanation",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 10,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Module 1: Rule-Based Reference Engine",
+            "runs": [
+              {
+                "text": "Module 1: Rule-Based Reference Engine",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "10",
+            "runs": [
+              {
+                "text": "10",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table 3",
+        "type": "TABLE (19)",
+        "left": 0.4,
+        "top": 1.95,
+        "width": 5.4,
+        "height": 3.5,
+        "table": {
+          "rows": 7,
+          "cols": 4
+        }
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 6.0,
+        "width": 5.4,
+        "height": 0.85,
+        "paragraphs": [
+          {
+            "text": "10 analytes (also cholesterol, BUN, HbA1c), sex-specific ranges, cited sources (ADA 2024, WHO, NKF, ",
+            "runs": [
+              {
+                "text": "10 analytes (also cholesterol, BUN, HbA1c), sex-specific ranges, cited sources (ADA 2024, WHO, NKF, Mayo, Harrison\u2019s). Critical limits only where an accepted alert criterion exists.",
+                "bold": false,
+                "size": 12.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 5",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.05,
+        "top": 1.95,
+        "width": 3.5,
+        "height": 2.3,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 6.2,
+        "top": 2.0,
+        "width": 3.2,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Indian unit normalisation",
+            "runs": [
+              {
+                "text": "Indian unit normalisation",
+                "bold": true,
+                "size": 15.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 7",
+        "type": "TEXT_BOX (17)",
+        "left": 6.2,
+        "top": 2.45,
+        "width": 3.2,
+        "height": 1.75,
+        "paragraphs": [
+          {
+            "text": "2.33 Lakhs/cumm",
+            "runs": [
+              {
+                "text": "2.33 Lakhs/cumm",
+                "bold": true,
+                "size": 18.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "\u00d7 100,000",
+            "runs": [
+              {
+                "text": "\u00d7 100,000",
+                "bold": false,
+                "size": 14.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "= 233,000 cells/\u00b5L",
+            "runs": [
+              {
+                "text": "= 233,000 cells/\u00b5L",
+                "bold": true,
+                "size": 18.0,
+                "color": "3F8F5C",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Classified: NORMAL",
+            "runs": [
+              {
+                "text": "Classified: NORMAL",
+                "bold": true,
+                "size": 14.0,
+                "color": "3F8F5C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.05,
+        "top": 4.45,
+        "width": 3.5,
+        "height": 2.35,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 6.2,
+        "top": 4.5,
+        "width": 3.2,
+        "height": 2.25,
+        "paragraphs": [
+          {
+            "text": "Why rules, not ML?",
+            "runs": [
+              {
+                "text": "Why rules, not ML?",
+                "bold": true,
+                "size": 15.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Guidelines already define the answer",
+            "runs": [
+              {
+                "text": "Guidelines already define the answer",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Every label is traceable to a source",
+            "runs": [
+              {
+                "text": "Every label is traceable to a source",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Deterministic: same input, same output",
+            "runs": [
+              {
+                "text": "Deterministic: same input, same output",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 11,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Module 2: Machine Learning Risk Estimation",
+            "runs": [
+              {
+                "text": "Module 2: Machine Learning Risk Estimation",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "11",
+            "runs": [
+              {
+                "text": "11",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 3",
+        "type": "PICTURE (13)",
+        "left": 0.85,
+        "top": 1.9,
+        "width": 2.5,
+        "height": 4.95
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 4.0,
+        "top": 1.95,
+        "width": 5.6,
+        "height": 1.9,
+        "paragraphs": [
+          {
+            "text": "Stratified 80/20 split (seed 42); held-out set never used for selection",
+            "runs": [
+              {
+                "text": "Stratified 80/20 split (seed 42); held-out set never used for selection",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "10 candidates per disease, 5-fold stratified CV on training data",
+            "runs": [
+              {
+                "text": "10 candidates per disease, 5-fold stratified CV on training data",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Champion chosen by recall, then ROC-AUC, specificity, Brier score",
+            "runs": [
+              {
+                "text": "Champion chosen by recall, then ROC-AUC, specificity, Brier score",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Missing features return INSUFFICIENT_FEATURES, never a guess",
+            "runs": [
+              {
+                "text": "Missing features return INSUFFICIENT_FEATURES, never a guess",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Bands: LOW < 0.30 \u2264 MODERATE < 0.70 \u2264 ELEVATED",
+            "runs": [
+              {
+                "text": "Bands: LOW < 0.30 \u2264 MODERATE < 0.70 \u2264 ELEVATED",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table 5",
+        "type": "TABLE (19)",
+        "left": 4.0,
+        "top": 4.55,
+        "width": 5.6,
+        "height": 2.0,
+        "table": {
+          "rows": 4,
+          "cols": 3
+        }
+      }
+    ]
+  },
+  {
+    "slide_index": 12,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Module 3: Prescription Explainer",
+            "runs": [
+              {
+                "text": "Module 3: Prescription Explainer",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "12",
+            "runs": [
+              {
+                "text": "12",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 3",
+        "type": "PICTURE (13)",
+        "left": 1.08,
+        "top": 1.9,
+        "width": 1.94,
+        "height": 4.95
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 3.95,
+        "top": 1.95,
+        "width": 5.6,
+        "height": 3.0,
+        "paragraphs": [
+          {
+            "text": "Photo / PDF: Gemini reads the image into structured JSON; Tesseract OCR is the fallback",
+            "runs": [
+              {
+                "text": "Photo / PDF: ",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "Gemini reads the image into structured JSON; Tesseract OCR is the fallback",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Text parsing: regex extracts dose (500 mg), frequency (1-0-1, OD, BD, TDS, SOS), timing and duration",
+            "runs": [
+              {
+                "text": "Text parsing: ",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "regex extracts dose (500 mg), frequency (1-0-1, OD, BD, TDS, SOS), timing and duration",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Drug catalogue: 29 common medicines, 103 generic and brand aliases (e.g. Glycomet, Dolo)",
+            "runs": [
+              {
+                "text": "Drug catalogue: ",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "29 common medicines, 103 generic and brand aliases (e.g. Glycomet, Dolo)",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Safety: unknown or illegible items get needs_confirmation and a pharmacist prompt",
+            "runs": [
+              {
+                "text": "Safety: ",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "unknown or illegible items get needs_confirmation and a pharmacist prompt",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table 5",
+        "type": "TABLE (19)",
+        "left": 3.95,
+        "top": 5.0,
+        "width": 5.6,
+        "height": 1.6,
+        "table": {
+          "rows": 4,
+          "cols": 2
+        }
+      }
+    ]
+  },
+  {
+    "slide_index": 13,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Module 4: Handwriting Recognition (TrOCR)",
+            "runs": [
+              {
+                "text": "Module 4: Handwriting Recognition (TrOCR)",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "13",
+            "runs": [
+              {
+                "text": "13",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 3",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 4.6,
+        "height": 2.9,
+        "paragraphs": [
+          {
+            "text": "microsoft/trocr-small-handwritten, 61.6 M parameters",
+            "runs": [
+              {
+                "text": "microsoft/trocr-small-handwritten, 61.6 M parameters",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "RxHandBD + Doctor\u2019s Handwritten Prescription BD: 9,984 real word crops",
+            "runs": [
+              {
+                "text": "RxHandBD + Doctor\u2019s Handwritten Prescription BD: 9,984 real word crops",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "7,101 train / 1,107 val / 1,776 test, SHA-256 de-duplicated",
+            "runs": [
+              {
+                "text": "7,101 train / 1,107 val / 1,776 test, SHA-256 de-duplicated",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "FP16, batch 2 \u00d7 8 accumulation, gradient checkpointing on a 4 GB RTX 3050",
+            "runs": [
+              {
+                "text": "FP16, batch 2 \u00d7 8 accumulation, gradient checkpointing on a 4 GB RTX 3050",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Evaluated as a standalone module; not yet in the live app",
+            "runs": [
+              {
+                "text": "Evaluated as a standalone module; not yet in the live app",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 4",
+        "type": "PICTURE (13)",
+        "left": 5.2,
+        "top": 1.95,
+        "width": 4.4,
+        "height": 2.34
+      },
+      {
+        "name": "Rounded Rectangle 5",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 5.15,
+        "width": 2.85,
+        "height": 1.35,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 5.23,
+        "width": 2.85,
+        "height": 0.7,
+        "paragraphs": [
+          {
+            "text": "67.68%",
+            "runs": [
+              {
+                "text": "67.68%",
+                "bold": true,
+                "size": 34.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 7",
+        "type": "TEXT_BOX (17)",
+        "left": 0.58,
+        "top": 5.95,
+        "width": 2.69,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Exact match, 1,776 test words",
+            "runs": [
+              {
+                "text": "Exact match, 1,776 test words",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.57,
+        "top": 5.15,
+        "width": 2.85,
+        "height": 1.35,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 3.57,
+        "top": 5.23,
+        "width": 2.85,
+        "height": 0.7,
+        "paragraphs": [
+          {
+            "text": "20.34%",
+            "runs": [
+              {
+                "text": "20.34%",
+                "bold": true,
+                "size": 34.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 3.65,
+        "top": 5.95,
+        "width": 2.69,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Character error rate (CER)",
+            "runs": [
+              {
+                "text": "Character error rate (CER)",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 11",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.65,
+        "top": 5.15,
+        "width": 2.85,
+        "height": 1.35,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 12",
+        "type": "TEXT_BOX (17)",
+        "left": 6.65,
+        "top": 5.23,
+        "width": 2.85,
+        "height": 0.7,
+        "paragraphs": [
+          {
+            "text": "91.83%",
+            "runs": [
+              {
+                "text": "91.83%",
+                "bold": true,
+                "size": 34.0,
+                "color": "3F8F5C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 6.73,
+        "top": 5.95,
+        "width": 2.69,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Exact match on Doctor BD subset",
+            "runs": [
+              {
+                "text": "Exact match on Doctor BD subset",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 14,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Module 5: Generative Explanation and Safety",
+            "runs": [
+              {
+                "text": "Module 5: Generative Explanation and Safety",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "14",
+            "runs": [
+              {
+                "text": "14",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 4.4,
+        "height": 1.45,
+        "paragraphs": []
+      },
+      {
+        "name": "Oval 4",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.65,
+        "top": 2.37,
+        "width": 0.6,
+        "height": 0.6,
+        "paragraphs": [
+          {
+            "text": "1",
+            "runs": [
+              {
+                "text": "1",
+                "bold": true,
+                "size": 18.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 1.4,
+        "top": 2.05,
+        "width": 3.4,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Verification gate",
+            "runs": [
+              {
+                "text": "Verification gate",
+                "bold": true,
+                "size": 15.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 1.4,
+        "top": 2.45,
+        "width": 3.4,
+        "height": 0.9,
+        "paragraphs": [
+          {
+            "text": "No model call if values are not verified; returns VERIFICATION_REQUIRED",
+            "runs": [
+              {
+                "text": "No model call if values are not verified; returns VERIFICATION_REQUIRED",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 7",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 1.95,
+        "width": 4.4,
+        "height": 1.45,
+        "paragraphs": []
+      },
+      {
+        "name": "Oval 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.25,
+        "top": 2.37,
+        "width": 0.6,
+        "height": 0.6,
+        "paragraphs": [
+          {
+            "text": "2",
+            "runs": [
+              {
+                "text": "2",
+                "bold": true,
+                "size": 18.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 6.0,
+        "top": 2.05,
+        "width": 3.4,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Values are fixed",
+            "runs": [
+              {
+                "text": "Values are fixed",
+                "bold": true,
+                "size": 15.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 6.0,
+        "top": 2.45,
+        "width": 3.4,
+        "height": 0.9,
+        "paragraphs": [
+          {
+            "text": "Prompt forbids changing any value, unit, classification or risk band",
+            "runs": [
+              {
+                "text": "Prompt forbids changing any value, unit, classification or risk band",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 11",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 3.6,
+        "width": 4.4,
+        "height": 1.45,
+        "paragraphs": []
+      },
+      {
+        "name": "Oval 12",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.65,
+        "top": 4.02,
+        "width": 0.6,
+        "height": 0.6,
+        "paragraphs": [
+          {
+            "text": "3",
+            "runs": [
+              {
+                "text": "3",
+                "bold": true,
+                "size": 18.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 1.4,
+        "top": 3.7,
+        "width": 3.4,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "No diagnosis or treatment",
+            "runs": [
+              {
+                "text": "No diagnosis or treatment",
+                "bold": true,
+                "size": 15.0,
+                "color": "3F8F5C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 14",
+        "type": "TEXT_BOX (17)",
+        "left": 1.4,
+        "top": 4.1,
+        "width": 3.4,
+        "height": 0.9,
+        "paragraphs": [
+          {
+            "text": "Model may not diagnose, prescribe or invent missing facts",
+            "runs": [
+              {
+                "text": "Model may not diagnose, prescribe or invent missing facts",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 15",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 3.6,
+        "width": 4.4,
+        "height": 1.45,
+        "paragraphs": []
+      },
+      {
+        "name": "Oval 16",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.25,
+        "top": 4.02,
+        "width": 0.6,
+        "height": 0.6,
+        "paragraphs": [
+          {
+            "text": "4",
+            "runs": [
+              {
+                "text": "4",
+                "bold": true,
+                "size": 18.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 17",
+        "type": "TEXT_BOX (17)",
+        "left": 6.0,
+        "top": 3.7,
+        "width": 3.4,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Injection resistant",
+            "runs": [
+              {
+                "text": "Injection resistant",
+                "bold": true,
+                "size": 15.0,
+                "color": "C98A2C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 18",
+        "type": "TEXT_BOX (17)",
+        "left": 6.0,
+        "top": 4.1,
+        "width": 3.4,
+        "height": 0.9,
+        "paragraphs": [
+          {
+            "text": "Clinical text treated as passive data; embedded instructions ignored",
+            "runs": [
+              {
+                "text": "Clinical text treated as passive data; embedded instructions ignored",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 19",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 5.35,
+        "width": 9.0,
+        "height": 1.4,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 20",
+        "type": "TEXT_BOX (17)",
+        "left": 0.7,
+        "top": 5.42,
+        "width": 8.6,
+        "height": 1.3,
+        "paragraphs": [
+          {
+            "text": "Gemini 3.5 Flash Lite: temperature 0.2, JSON schema output, 30 s timeout, 3 retries; offline mock pr",
+            "runs": [
+              {
+                "text": "Gemini 3.5 Flash Lite",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": ": temperature 0.2, JSON schema output, 30 s timeout, 3 retries; offline mock provider when no API key.",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Translation to Hindi, Marathi, Gujarati keeps numbers, units and labels in English for easy matching",
+            "runs": [
+              {
+                "text": "Translation",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": " to Hindi, Marathi, Gujarati keeps numbers, units and labels in English for easy matching with the report.",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Every response: \u201cThis is not a medical diagnosis. Please consult a qualified healthcare professional",
+            "runs": [
+              {
+                "text": "Every response: ",
+                "bold": true,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              },
+              {
+                "text": "\u201cThis is not a medical diagnosis. Please consult a qualified healthcare professional.\u201d",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 15,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Tools, Technologies, Software and Hardware",
+            "runs": [
+              {
+                "text": "Tools, Technologies, Software and Hardware",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "15",
+            "runs": [
+              {
+                "text": "15",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table 3",
+        "type": "TABLE (19)",
+        "left": 0.6,
+        "top": 1.95,
+        "width": 8.8,
+        "height": 5.0,
+        "table": {
+          "rows": 10,
+          "cols": 2
+        }
+      }
+    ]
+  },
+  {
+    "slide_index": 16,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Database Design and REST API",
+            "runs": [
+              {
+                "text": "Database Design and REST API",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "16",
+            "runs": [
+              {
+                "text": "16",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 3",
+        "type": "PICTURE (13)",
+        "left": 0.54,
+        "top": 1.9,
+        "width": 3.93,
+        "height": 4.95
+      },
+      {
+        "name": "Table 4",
+        "type": "TABLE (19)",
+        "left": 4.85,
+        "top": 1.95,
+        "width": 4.8,
+        "height": 3.36,
+        "table": {
+          "rows": 8,
+          "cols": 2
+        }
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 4.85,
+        "top": 5.4,
+        "width": 4.8,
+        "height": 1.4,
+        "paragraphs": [
+          {
+            "text": "7 tables with cascading foreign keys. History is stored per user, so one account can never read anot",
+            "runs": [
+              {
+                "text": "7 tables with cascading foreign keys. History is stored per user, so one account can never read another\u2019s records. Passwords: PBKDF2-SHA256, 100,000 iterations.",
+                "bold": false,
+                "size": 12.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 17,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Implementation: Application Screens (1/2)",
+            "runs": [
+              {
+                "text": "Implementation: Application Screens (1/2)",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "17",
+            "runs": [
+              {
+                "text": "17",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 3",
+        "type": "PICTURE (13)",
+        "left": 0.45,
+        "top": 1.95,
+        "width": 1.7,
+        "height": 3.61
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.45,
+        "top": 6.42,
+        "width": 1.7,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Sign in",
+            "runs": [
+              {
+                "text": "Sign in",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 5",
+        "type": "PICTURE (13)",
+        "left": 2.29,
+        "top": 1.95,
+        "width": 1.7,
+        "height": 3.63
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 2.29,
+        "top": 6.42,
+        "width": 1.7,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Dashboard",
+            "runs": [
+              {
+                "text": "Dashboard",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 7",
+        "type": "PICTURE (13)",
+        "left": 4.13,
+        "top": 1.95,
+        "width": 1.7,
+        "height": 3.64
+      },
+      {
+        "name": "TextBox 8",
+        "type": "TEXT_BOX (17)",
+        "left": 4.13,
+        "top": 6.42,
+        "width": 1.7,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Upload",
+            "runs": [
+              {
+                "text": "Upload",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 9",
+        "type": "PICTURE (13)",
+        "left": 5.97,
+        "top": 1.95,
+        "width": 1.7,
+        "height": 3.64
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 5.97,
+        "top": 6.42,
+        "width": 1.7,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Extracted text",
+            "runs": [
+              {
+                "text": "Extracted text",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 11",
+        "type": "PICTURE (13)",
+        "left": 7.81,
+        "top": 1.95,
+        "width": 1.7,
+        "height": 3.63
+      },
+      {
+        "name": "TextBox 12",
+        "type": "TEXT_BOX (17)",
+        "left": 7.81,
+        "top": 6.42,
+        "width": 1.7,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Analysis results",
+            "runs": [
+              {
+                "text": "Analysis results",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 18,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Implementation: Application Screens (2/2)",
+            "runs": [
+              {
+                "text": "Implementation: Application Screens (2/2)",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "18",
+            "runs": [
+              {
+                "text": "18",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 3",
+        "type": "PICTURE (13)",
+        "left": 0.55,
+        "top": 1.95,
+        "width": 2.0,
+        "height": 4.28
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.45,
+        "top": 6.42,
+        "width": 2.2,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Prescription upload",
+            "runs": [
+              {
+                "text": "Prescription upload",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 5",
+        "type": "PICTURE (13)",
+        "left": 2.82,
+        "top": 1.95,
+        "width": 2.0,
+        "height": 4.27
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 2.72,
+        "top": 6.42,
+        "width": 2.2,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Rx result with safety flag",
+            "runs": [
+              {
+                "text": "Rx result with safety flag",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 7",
+        "type": "PICTURE (13)",
+        "left": 5.09,
+        "top": 1.95,
+        "width": 2.0,
+        "height": 4.26
+      },
+      {
+        "name": "TextBox 8",
+        "type": "TEXT_BOX (17)",
+        "left": 4.99,
+        "top": 6.42,
+        "width": 2.2,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "History",
+            "runs": [
+              {
+                "text": "History",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 9",
+        "type": "PICTURE (13)",
+        "left": 7.36,
+        "top": 1.95,
+        "width": 2.0,
+        "height": 4.28
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 7.26,
+        "top": 6.42,
+        "width": 2.2,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Settings",
+            "runs": [
+              {
+                "text": "Settings",
+                "bold": true,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 19,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Results: Risk Model Performance",
+            "runs": [
+              {
+                "text": "Results: Risk Model Performance",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "19",
+            "runs": [
+              {
+                "text": "19",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Chart 3",
+        "type": "CHART (3)",
+        "left": 0.4,
+        "top": 1.9,
+        "width": 5.9,
+        "height": 4.9
+      },
+      {
+        "name": "Table 4",
+        "type": "TABLE (19)",
+        "left": 6.5,
+        "top": 1.95,
+        "width": 3.1,
+        "height": 2.1,
+        "table": {
+          "rows": 5,
+          "cols": 4
+        }
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 6.5,
+        "top": 4.15,
+        "width": 3.1,
+        "height": 2.7,
+        "paragraphs": [
+          {
+            "text": "Diabetes model favours sensitivity (misses 11 of 54 positives) \u2014 right for a screening aid.",
+            "runs": [
+              {
+                "text": "Diabetes model favours sensitivity (misses 11 of 54 positives) \u2014 right for a screening aid.",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Kidney result is near-perfect because the small single-hospital dataset is easy; not a population cl",
+            "runs": [
+              {
+                "text": "Kidney result is near-perfect because the small single-hospital dataset is easy; not a population claim.",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "All 3: 100\u00d7 deterministic, order-invariant, safe on missing or extreme inputs.",
+            "runs": [
+              {
+                "text": "All 3: 100\u00d7 deterministic, order-invariant, safe on missing or extreme inputs.",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 20,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Results: Testing and Verification",
+            "runs": [
+              {
+                "text": "Results: Testing and Verification",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "20",
+            "runs": [
+              {
+                "text": "20",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 2.1,
+        "height": 1.35,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 2.03,
+        "width": 2.1,
+        "height": 0.7,
+        "paragraphs": [
+          {
+            "text": "335",
+            "runs": [
+              {
+                "text": "335",
+                "bold": true,
+                "size": 30.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 0.58,
+        "top": 2.75,
+        "width": 1.94,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Backend pytest tests passed",
+            "runs": [
+              {
+                "text": "Backend pytest tests passed",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 6",
+        "type": "AUTO_SHAPE (1)",
+        "left": 2.77,
+        "top": 1.95,
+        "width": 2.1,
+        "height": 1.35,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 7",
+        "type": "TEXT_BOX (17)",
+        "left": 2.77,
+        "top": 2.03,
+        "width": 2.1,
+        "height": 0.7,
+        "paragraphs": [
+          {
+            "text": "113",
+            "runs": [
+              {
+                "text": "113",
+                "bold": true,
+                "size": 30.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 8",
+        "type": "TEXT_BOX (17)",
+        "left": 2.85,
+        "top": 2.75,
+        "width": 1.94,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Flutter unit and widget tests passed",
+            "runs": [
+              {
+                "text": "Flutter unit and widget tests passed",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 9",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.04,
+        "top": 1.95,
+        "width": 2.1,
+        "height": 1.35,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 5.04,
+        "top": 2.03,
+        "width": 2.1,
+        "height": 0.7,
+        "paragraphs": [
+          {
+            "text": "15 / 15",
+            "runs": [
+              {
+                "text": "15 / 15",
+                "bold": true,
+                "size": 30.0,
+                "color": "3F8F5C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 11",
+        "type": "TEXT_BOX (17)",
+        "left": 5.12,
+        "top": 2.75,
+        "width": 1.94,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Live end-to-end checks passed",
+            "runs": [
+              {
+                "text": "Live end-to-end checks passed",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 12",
+        "type": "AUTO_SHAPE (1)",
+        "left": 7.31,
+        "top": 1.95,
+        "width": 2.1,
+        "height": 1.35,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 7.31,
+        "top": 2.03,
+        "width": 2.1,
+        "height": 0.7,
+        "paragraphs": [
+          {
+            "text": "0",
+            "runs": [
+              {
+                "text": "0",
+                "bold": true,
+                "size": 30.0,
+                "color": "C98A2C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 14",
+        "type": "TEXT_BOX (17)",
+        "left": 7.39,
+        "top": 2.75,
+        "width": 1.94,
+        "height": 0.5,
+        "paragraphs": [
+          {
+            "text": "Issues from flutter analyze",
+            "runs": [
+              {
+                "text": "Issues from flutter analyze",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table 15",
+        "type": "TABLE (19)",
+        "left": 0.5,
+        "top": 3.55,
+        "width": 9.0,
+        "height": 3.08,
+        "table": {
+          "rows": 7,
+          "cols": 3
+        }
+      }
+    ]
+  },
+  {
+    "slide_index": 21,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Results: Performance Under Load",
+            "runs": [
+              {
+                "text": "Results: Performance Under Load",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "21",
+            "runs": [
+              {
+                "text": "21",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Chart 3",
+        "type": "CHART (3)",
+        "left": 0.4,
+        "top": 1.9,
+        "width": 6.0,
+        "height": 4.9
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 6.6,
+        "top": 1.95,
+        "width": 3.0,
+        "height": 4.9,
+        "paragraphs": [
+          {
+            "text": "100 requests per endpoint, 20 concurrent workers",
+            "runs": [
+              {
+                "text": "100 requests per endpoint, 20 concurrent workers",
+                "bold": false,
+                "size": 12.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "0% errors on every endpoint",
+            "runs": [
+              {
+                "text": "0% errors on every endpoint",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Reference and parsing ~0.1 s even under load",
+            "runs": [
+              {
+                "text": "Reference and parsing ~0.1 s even under load",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Diabetes RF P95 1.21 s: only value over 1 s (100 trees under CPU contention)",
+            "runs": [
+              {
+                "text": "Diabetes RF P95 1.21 s: only value over 1 s (100 trees under CPU contention)",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Single cached ML inference < 10 ms",
+            "runs": [
+              {
+                "text": "Single cached ML inference < 10 ms",
+                "bold": false,
+                "size": 13.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 22,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Project Development Timeline (Gantt Chart)",
+            "runs": [
+              {
+                "text": "Project Development Timeline (Gantt Chart)",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "22",
+            "runs": [
+              {
+                "text": "22",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 2.6,
+        "top": 1.95,
+        "width": 1.29,
+        "height": 0.32,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 2.6,
+        "top": 1.96,
+        "width": 1.29,
+        "height": 0.3,
+        "paragraphs": [
+          {
+            "text": "Jul 2026",
+            "runs": [
+              {
+                "text": "Jul 2026",
+                "bold": true,
+                "size": 11.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rectangle 5",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.89,
+        "top": 1.95,
+        "width": 1.72,
+        "height": 0.32,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 3.89,
+        "top": 1.96,
+        "width": 1.72,
+        "height": 0.3,
+        "paragraphs": [
+          {
+            "text": "Aug 2026",
+            "runs": [
+              {
+                "text": "Aug 2026",
+                "bold": true,
+                "size": 11.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rectangle 7",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.61,
+        "top": 1.95,
+        "width": 1.72,
+        "height": 0.32,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 8",
+        "type": "TEXT_BOX (17)",
+        "left": 5.61,
+        "top": 1.96,
+        "width": 1.72,
+        "height": 0.3,
+        "paragraphs": [
+          {
+            "text": "Sep 2026",
+            "runs": [
+              {
+                "text": "Sep 2026",
+                "bold": true,
+                "size": 11.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rectangle 9",
+        "type": "AUTO_SHAPE (1)",
+        "left": 7.33,
+        "top": 1.95,
+        "width": 2.15,
+        "height": 0.32,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 7.33,
+        "top": 1.96,
+        "width": 2.15,
+        "height": 0.3,
+        "paragraphs": [
+          {
+            "text": "Oct 2026",
+            "runs": [
+              {
+                "text": "Oct 2026",
+                "bold": true,
+                "size": 11.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 11",
+        "type": "TEXT_BOX (17)",
+        "left": 2.6,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W1",
+            "runs": [
+              {
+                "text": "W1",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 12",
+        "type": "TEXT_BOX (17)",
+        "left": 3.03,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W2",
+            "runs": [
+              {
+                "text": "W2",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 3.46,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W3",
+            "runs": [
+              {
+                "text": "W3",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 14",
+        "type": "TEXT_BOX (17)",
+        "left": 3.89,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W4",
+            "runs": [
+              {
+                "text": "W4",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 15",
+        "type": "TEXT_BOX (17)",
+        "left": 4.32,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W5",
+            "runs": [
+              {
+                "text": "W5",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 16",
+        "type": "TEXT_BOX (17)",
+        "left": 4.75,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W6",
+            "runs": [
+              {
+                "text": "W6",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 17",
+        "type": "TEXT_BOX (17)",
+        "left": 5.18,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W7",
+            "runs": [
+              {
+                "text": "W7",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 18",
+        "type": "TEXT_BOX (17)",
+        "left": 5.61,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W8",
+            "runs": [
+              {
+                "text": "W8",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 19",
+        "type": "TEXT_BOX (17)",
+        "left": 6.04,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W9",
+            "runs": [
+              {
+                "text": "W9",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 20",
+        "type": "TEXT_BOX (17)",
+        "left": 6.47,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W10",
+            "runs": [
+              {
+                "text": "W10",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 21",
+        "type": "TEXT_BOX (17)",
+        "left": 6.9,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W11",
+            "runs": [
+              {
+                "text": "W11",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 22",
+        "type": "TEXT_BOX (17)",
+        "left": 7.33,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W12",
+            "runs": [
+              {
+                "text": "W12",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 23",
+        "type": "TEXT_BOX (17)",
+        "left": 7.76,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W13",
+            "runs": [
+              {
+                "text": "W13",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 24",
+        "type": "TEXT_BOX (17)",
+        "left": 8.19,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W14",
+            "runs": [
+              {
+                "text": "W14",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 25",
+        "type": "TEXT_BOX (17)",
+        "left": 8.62,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W15",
+            "runs": [
+              {
+                "text": "W15",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 26",
+        "type": "TEXT_BOX (17)",
+        "left": 9.05,
+        "top": 2.29,
+        "width": 0.43,
+        "height": 0.25,
+        "paragraphs": [
+          {
+            "text": "W16",
+            "runs": [
+              {
+                "text": "W16",
+                "bold": true,
+                "size": 8.5,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 27",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 2.61,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Problem & requirements",
+            "runs": [
+              {
+                "text": "Problem & requirements",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 28",
+        "type": "AUTO_SHAPE (1)",
+        "left": 2.62,
+        "top": 2.68,
+        "width": 0.82,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 29",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 2.98,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Literature survey (PRISMA)",
+            "runs": [
+              {
+                "text": "Literature survey (PRISMA)",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 30",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.48,
+        "top": 3.05,
+        "width": 0.82,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 31",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 3.35,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Datasets & tech stack",
+            "runs": [
+              {
+                "text": "Datasets & tech stack",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 32",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.34,
+        "top": 3.42,
+        "width": 0.39,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 33",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 3.72,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "System design",
+            "runs": [
+              {
+                "text": "System design",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 34",
+        "type": "AUTO_SHAPE (1)",
+        "left": 4.77,
+        "top": 3.79,
+        "width": 0.82,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 35",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 4.09,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Environment setup",
+            "runs": [
+              {
+                "text": "Environment setup",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 36",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.63,
+        "top": 4.16,
+        "width": 0.39,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 37",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 4.46,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Core backend & AI modules",
+            "runs": [
+              {
+                "text": "Core backend & AI modules",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 38",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.06,
+        "top": 4.53,
+        "width": 0.39,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 39",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 4.83,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Flutter mobile app",
+            "runs": [
+              {
+                "text": "Flutter mobile app",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 40",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.06,
+        "top": 4.9,
+        "width": 1.25,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 41",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 5.2,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Testing & packaging",
+            "runs": [
+              {
+                "text": "Testing & packaging",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 42",
+        "type": "AUTO_SHAPE (1)",
+        "left": 7.35,
+        "top": 5.27,
+        "width": 0.39,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 43",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 5.57,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Auth & user isolation",
+            "runs": [
+              {
+                "text": "Auth & user isolation",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 44",
+        "type": "AUTO_SHAPE (1)",
+        "left": 8.21,
+        "top": 5.64,
+        "width": 0.82,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 45",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 5.94,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Rx explainer & insights",
+            "runs": [
+              {
+                "text": "Rx explainer & insights",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 46",
+        "type": "AUTO_SHAPE (1)",
+        "left": 8.64,
+        "top": 6.01,
+        "width": 0.82,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 47",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 6.31,
+        "width": 2.2,
+        "height": 0.32,
+        "paragraphs": [
+          {
+            "text": "Black book & presentation",
+            "runs": [
+              {
+                "text": "Black book & presentation",
+                "bold": false,
+                "size": 11.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 48",
+        "type": "AUTO_SHAPE (1)",
+        "left": 9.07,
+        "top": 6.38,
+        "width": 0.39,
+        "height": 0.22,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 49",
+        "type": "TEXT_BOX (17)",
+        "left": 0.4,
+        "top": 6.55,
+        "width": 9.2,
+        "height": 0.35,
+        "paragraphs": [
+          {
+            "text": "Week 1 = 13 Jul 2026, Week 16 = 26 Oct 2026. Phases 1-8 committed 9-10 Sep; review paper submitted 1",
+            "runs": [
+              {
+                "text": "Week 1 = 13 Jul 2026, Week 16 = 26 Oct 2026. Phases 1-8 committed 9-10 Sep; review paper submitted 12 Sep; final commit 28 Oct.",
+                "bold": false,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 23,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Advantages and Limitations",
+            "runs": [
+              {
+                "text": "Advantages and Limitations",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "23",
+            "runs": [
+              {
+                "text": "23",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 4.4,
+        "height": 4.85,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 4",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 4.4,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 5",
+        "type": "TEXT_BOX (17)",
+        "left": 0.58,
+        "top": 1.97,
+        "width": 4.24,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Advantages",
+            "runs": [
+              {
+                "text": "Advantages",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 2.45,
+        "width": 4.2,
+        "height": 4.3,
+        "paragraphs": [
+          {
+            "text": "Verification before any interpretation",
+            "runs": [
+              {
+                "text": "Verification before any interpretation",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Traceable, cited reference rules",
+            "runs": [
+              {
+                "text": "Traceable, cited reference rules",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Handles Indian units (Lakhs/cumm)",
+            "runs": [
+              {
+                "text": "Handles Indian units (Lakhs/cumm)",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Bounded GenAI, 4 languages",
+            "runs": [
+              {
+                "text": "Bounded GenAI, 4 languages",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Honest uncertainty: no guessed values",
+            "runs": [
+              {
+                "text": "Honest uncertainty: no guessed values",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 7",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 1.95,
+        "width": 4.4,
+        "height": 4.85,
+        "paragraphs": []
+      },
+      {
+        "name": "Rounded Rectangle 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 5.1,
+        "top": 1.95,
+        "width": 4.4,
+        "height": 0.42,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 5.18,
+        "top": 1.97,
+        "width": 4.24,
+        "height": 0.38,
+        "paragraphs": [
+          {
+            "text": "Limitations",
+            "runs": [
+              {
+                "text": "Limitations",
+                "bold": true,
+                "size": 15.0,
+                "color": "FFFFFF",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 5.2,
+        "top": 2.45,
+        "width": 4.2,
+        "height": 4.3,
+        "paragraphs": [
+          {
+            "text": "Not clinically validated",
+            "runs": [
+              {
+                "text": "Not clinically validated",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "TrOCR not yet integrated in app",
+            "runs": [
+              {
+                "text": "TrOCR not yet integrated in app",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Google sign-in is simulated",
+            "runs": [
+              {
+                "text": "Google sign-in is simulated",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "Auto-Analyze skips item-by-item review",
+            "runs": [
+              {
+                "text": "Auto-Analyze skips item-by-item review",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "10 analytes, 29 medicines only",
+            "runs": [
+              {
+                "text": "10 analytes, 29 medicines only",
+                "bold": false,
+                "size": 17.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 24,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Conclusion and Future Scope",
+            "runs": [
+              {
+                "text": "Conclusion and Future Scope",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "24",
+            "runs": [
+              {
+                "text": "24",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 3",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 9.0,
+        "height": 1.7,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 4",
+        "type": "TEXT_BOX (17)",
+        "left": 0.7,
+        "top": 2.0,
+        "width": 8.6,
+        "height": 1.6,
+        "paragraphs": [
+          {
+            "text": "All three objectives were met as a working prototype: verified report analysis with cited rules, a p",
+            "runs": [
+              {
+                "text": "All three objectives were met as a working prototype: verified report analysis with cited rules, a prescription explainer that flags uncertainty, and validated risk models (AUC 0.81 / 0.93 / 0.999) \u2014 with generative AI used only to explain, never to decide.",
+                "bold": false,
+                "size": 15.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 5",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 3.9,
+        "width": 2.85,
+        "height": 1.3,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 6",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 3.98,
+        "width": 2.65,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Integrate TrOCR",
+            "runs": [
+              {
+                "text": "Integrate TrOCR",
+                "bold": true,
+                "size": 14.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 7",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 4.4,
+        "width": 2.65,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "ONNX / TFLite on device, line segmentation",
+            "runs": [
+              {
+                "text": "ONNX / TFLite on device, line segmentation",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 8",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.55,
+        "top": 3.9,
+        "width": 2.85,
+        "height": 1.3,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 9",
+        "type": "TEXT_BOX (17)",
+        "left": 3.65,
+        "top": 3.98,
+        "width": 2.65,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Real Google OAuth",
+            "runs": [
+              {
+                "text": "Real Google OAuth",
+                "bold": true,
+                "size": 14.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 10",
+        "type": "TEXT_BOX (17)",
+        "left": 3.65,
+        "top": 4.4,
+        "width": 2.65,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Token verification, hardened security",
+            "runs": [
+              {
+                "text": "Token verification, hardened security",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 11",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.6,
+        "top": 3.9,
+        "width": 2.85,
+        "height": 1.3,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 12",
+        "type": "TEXT_BOX (17)",
+        "left": 6.7,
+        "top": 3.98,
+        "width": 2.65,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Clinical validation",
+            "runs": [
+              {
+                "text": "Clinical validation",
+                "bold": true,
+                "size": 14.0,
+                "color": "3F8F5C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 13",
+        "type": "TEXT_BOX (17)",
+        "left": 6.7,
+        "top": 4.4,
+        "width": 2.65,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Real Indian reports and patient usability study",
+            "runs": [
+              {
+                "text": "Real Indian reports and patient usability study",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 14",
+        "type": "AUTO_SHAPE (1)",
+        "left": 0.5,
+        "top": 5.35,
+        "width": 2.85,
+        "height": 1.3,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 15",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 5.43,
+        "width": 2.65,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Wider coverage",
+            "runs": [
+              {
+                "text": "Wider coverage",
+                "bold": true,
+                "size": 14.0,
+                "color": "C98A2C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 16",
+        "type": "TEXT_BOX (17)",
+        "left": 0.6,
+        "top": 5.85,
+        "width": 2.65,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Full panels, RxNorm drug list, interaction checks",
+            "runs": [
+              {
+                "text": "Full panels, RxNorm drug list, interaction checks",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 17",
+        "type": "AUTO_SHAPE (1)",
+        "left": 3.55,
+        "top": 5.35,
+        "width": 2.85,
+        "height": 1.3,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 18",
+        "type": "TEXT_BOX (17)",
+        "left": 3.65,
+        "top": 5.43,
+        "width": 2.65,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "FHIR export",
+            "runs": [
+              {
+                "text": "FHIR export",
+                "bold": true,
+                "size": 14.0,
+                "color": "2E5F8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 19",
+        "type": "TEXT_BOX (17)",
+        "left": 3.65,
+        "top": 5.85,
+        "width": 2.65,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "Share with hospital and ABDM records",
+            "runs": [
+              {
+                "text": "Share with hospital and ABDM records",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rounded Rectangle 20",
+        "type": "AUTO_SHAPE (1)",
+        "left": 6.6,
+        "top": 5.35,
+        "width": 2.85,
+        "height": 1.3,
+        "paragraphs": []
+      },
+      {
+        "name": "TextBox 21",
+        "type": "TEXT_BOX (17)",
+        "left": 6.7,
+        "top": 5.43,
+        "width": 2.65,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "Patient features",
+            "runs": [
+              {
+                "text": "Patient features",
+                "bold": true,
+                "size": 14.0,
+                "color": "BC312C",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 22",
+        "type": "TEXT_BOX (17)",
+        "left": 6.7,
+        "top": 5.85,
+        "width": 2.65,
+        "height": 0.75,
+        "paragraphs": [
+          {
+            "text": "PDF summary, reminders, trend charts",
+            "runs": [
+              {
+                "text": "PDF summary, reminders, trend charts",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 25,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "Research Paper Submission",
+            "runs": [
+              {
+                "text": "Research Paper Submission",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "25",
+            "runs": [
+              {
+                "text": "25",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Picture 3",
+        "type": "PICTURE (13)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 9.0,
+        "height": 2.01
+      },
+      {
+        "name": "Table 4",
+        "type": "TABLE (19)",
+        "left": 1.2,
+        "top": 4.3,
+        "width": 7.6,
+        "height": 2.25,
+        "table": {
+          "rows": 5,
+          "cols": 2
+        }
+      }
+    ]
+  },
+  {
+    "slide_index": 26,
+    "shapes": [
+      {
+        "name": "Title 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 0.5,
+        "top": 1.28,
+        "width": 9.0,
+        "height": 0.62,
+        "paragraphs": [
+          {
+            "text": "References",
+            "runs": [
+              {
+                "text": "References",
+                "bold": true,
+                "size": 28.0,
+                "color": "4B442A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 2",
+        "type": "TEXT_BOX (17)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "26",
+            "runs": [
+              {
+                "text": "26",
+                "bold": null,
+                "size": 10.0,
+                "color": "8A8A8A",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TextBox 3",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 1.95,
+        "width": 9.0,
+        "height": 4.9,
+        "paragraphs": [
+          {
+            "text": "[1]  D. N. Devi et al., \u201cSmart medical report analyzer using ML and NLP,\u201d IJRPR, vol. 6, no. 10, 202",
+            "runs": [
+              {
+                "text": "[1]  D. N. Devi et al., \u201cSmart medical report analyzer using ML and NLP,\u201d IJRPR, vol. 6, no. 10, 2025.",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "[2]  B. Srinivasulu et al., \u201cMEDISCAN-AI health report analyzer and advisor,\u201d IJACMS, vol. 2, no. 4,",
+            "runs": [
+              {
+                "text": "[2]  B. Srinivasulu et al., \u201cMEDISCAN-AI health report analyzer and advisor,\u201d IJACMS, vol. 2, no. 4, 2026.",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "[3]  M. Li et al., \u201cTrOCR: Transformer-based OCR with pre-trained models,\u201d Proc. AAAI, vol. 37, 2023",
+            "runs": [
+              {
+                "text": "[3]  M. Li et al., \u201cTrOCR: Transformer-based OCR with pre-trained models,\u201d Proc. AAAI, vol. 37, 2023.",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "[4]  R. AlSaad et al., \u201cMultimodal large language models in health care,\u201d J. Med. Internet Res., vol",
+            "runs": [
+              {
+                "text": "[4]  R. AlSaad et al., \u201cMultimodal large language models in health care,\u201d J. Med. Internet Res., vol. 26, 2024.",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          },
+          {
+            "text": "[5]  L. Rasmy et al., \u201cMed-BERT,\u201d npj Digital Medicine, vol. 4, p. 86, 2021.",
+            "runs": [
+              {
+                "text": "[5]  L. Rasmy et al., \u201cMed-BERT,\u201d npj Digital Medicine, vol. 4, p. 86, 2021.",
+                "bold": false,
+                "size": 12.0,
+                "color": "333333",
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slide_index": 27,
+    "shapes": [
+      {
+        "name": "Thank You Title",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 2.5,
+        "width": 9.0,
+        "height": 1.31,
+        "paragraphs": [
+          {
+            "text": "Thank You",
+            "runs": [
+              {
+                "text": "Thank You",
+                "bold": true,
+                "size": 54.0,
+                "color": null,
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "QA Subtitle",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 3.81,
+        "width": 9.0,
+        "height": 0.66,
+        "paragraphs": [
+          {
+            "text": "Questions & Answers",
+            "runs": [
+              {
+                "text": "Questions & Answers",
+                "bold": null,
+                "size": 24.0,
+                "color": null,
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Project Recap",
+        "type": "TEXT_BOX (17)",
+        "left": 0.5,
+        "top": 5.38,
+        "width": 9.0,
+        "height": 0.55,
+        "paragraphs": [
+          {
+            "text": "MedIntel AI: Intelligent Medical Report Analyzer \u2014 Aditya Patil, Shreekrishna Patil, Prathamesh Chau",
+            "runs": [
+              {
+                "text": "MedIntel AI: Intelligent Medical Report Analyzer \u2014 Aditya Patil, Shreekrishna Patil, Prathamesh Chaudhari",
+                "bold": null,
+                "size": 16.0,
+                "color": null,
+                "font": "Times New Roman"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Slide Number Placeholder 1",
+        "type": "PLACEHOLDER (14)",
+        "left": 7.17,
+        "top": 6.97,
+        "width": 2.33,
+        "height": 0.4,
+        "paragraphs": [
+          {
+            "text": "16",
+            "runs": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -228,3 +228,153 @@ def gemini_transcript(audio_file_path="debug_audio.wav"):
 check_and_respond_with_openai = check_and_respond_with_gemini
 openai_make_notes = gemini_make_notes
 chatgpt_transcript = gemini_transcript
+
+
+def gemini_generate_quiz(notes, num_questions=5):
+    """
+    Uses Google Gemini to generate a high-quality 5-10 question multiple-choice quiz
+    derived directly from the lecture notes.
+    Returns a list of structured question dictionaries.
+    """
+    import json
+
+    if not notes or not notes.strip():
+        return []
+
+    num_q = max(5, min(10, int(num_questions or 5)))
+
+    prompt = f"""You are an expert university professor creating a high-quality self-evaluation quiz for students based on these lecture notes:
+\"\"\"{notes}\"\"\"
+
+Generate a JSON array of {num_q} multiple-choice questions (MCQs) designed to evaluate student understanding of the key concepts, formulas, definitions, and discussion points from the lecture.
+
+Requirements:
+1. Generate exactly {num_q} questions.
+2. The questions should test comprehension, application, and critical concepts, not just trivial trivia.
+3. Each question must have:
+   - "id": integer starting from 1 to {num_q}
+   - "question": string, clear academic question
+   - "options": array of exactly 4 distinct string choices (clean text without 'A)' prefixes)
+   - "correct_index": integer (0, 1, 2, or 3) pointing to the correct choice in options
+   - "explanation": string, clear explanation of why this answer is correct and why the concept matters based on the lecture
+   - "topic": string, 2-3 word concept topic tag (e.g. "Neural Networks", "Regularization", "Cost Function")
+
+Output strictly a valid JSON array."""
+
+    try:
+        config = types.GenerateContentConfig(
+            temperature=0.3,
+            response_mime_type="application/json",
+            max_output_tokens=3500,
+        )
+        res = _call_gemini(CONTENT_MODELS, prompt, config=config)
+        if res:
+            clean_res = res.strip()
+            if clean_res.startswith("```json"):
+                clean_res = clean_res[7:]
+            if clean_res.startswith("```"):
+                clean_res = clean_res[3:]
+            if clean_res.endswith("```"):
+                clean_res = clean_res[:-3]
+            clean_res = clean_res.strip()
+
+            questions = json.loads(clean_res)
+            if isinstance(questions, dict) and "questions" in questions:
+                questions = questions["questions"]
+
+            if isinstance(questions, list):
+                valid_questions = []
+                for idx, q in enumerate(questions, start=1):
+                    if isinstance(q, dict) and "question" in q and "options" in q:
+                        opts = [str(o) for o in q.get("options", [])]
+                        if len(opts) >= 2:
+                            c_idx = int(q.get("correct_index", 0))
+                            if c_idx < 0 or c_idx >= len(opts):
+                                c_idx = 0
+                            valid_questions.append({
+                                "id": idx,
+                                "question": str(q["question"]),
+                                "options": opts[:4],
+                                "correct_index": c_idx,
+                                "explanation": str(q.get("explanation", "Correct based on the lecture notes.")),
+                                "topic": str(q.get("topic", "Lecture Concept")),
+                            })
+                if valid_questions:
+                    print(f"[Gemini Quiz] Successfully generated {len(valid_questions)} quiz questions from lecture notes.", flush=True)
+                    return valid_questions
+    except Exception as e:
+        print(f"[Gemini Error] Quiz generation error: {e}", flush=True)
+
+    return []
+
+
+def gemini_evaluate_quiz(notes, questions, student_answers):
+    """
+    Evaluates student quiz answers and provides a personalized diagnostic evaluation
+    with strengths, weaknesses, and targeted study advice based on lecture notes.
+    """
+    total = len(questions)
+    correct_count = 0
+    breakdown = []
+
+    for q in questions:
+        q_id = str(q.get("id"))
+        user_choice = student_answers.get(q_id)
+        if user_choice is None:
+            user_choice = student_answers.get(int(q_id))
+
+        is_correct = False
+        if user_choice is not None and int(user_choice) == int(q.get("correct_index", 0)):
+            is_correct = True
+            correct_count += 1
+
+        breakdown.append({
+            "id": q.get("id"),
+            "question": q.get("question"),
+            "topic": q.get("topic", "Lecture Concept"),
+            "options": q.get("options", []),
+            "selected_index": int(user_choice) if user_choice is not None else None,
+            "correct_index": int(q.get("correct_index", 0)),
+            "is_correct": is_correct,
+            "explanation": q.get("explanation", "")
+        })
+
+    percentage = round((correct_count / total * 100), 1) if total > 0 else 0.0
+
+    if percentage >= 85:
+        mastery = "Mastery"
+    elif percentage >= 65:
+        mastery = "Proficient"
+    elif percentage >= 45:
+        mastery = "Developing"
+    else:
+        mastery = "Needs Review"
+
+    advice = "Great effort! Review the explanations for questions you missed to reinforce your understanding."
+    try:
+        incorrect_topics = [b["topic"] for b in breakdown if not b["is_correct"]]
+        if incorrect_topics:
+            topics_str = ", ".join(set(incorrect_topics))
+            prompt = f"""A student scored {correct_count}/{total} ({percentage}%) on their lecture self-evaluation quiz.
+They struggled with these topics: {topics_str}.
+Based on these notes:
+\"\"\"{notes[:1500]}\"\"\"
+
+Provide warm, encouraging, concise 2-sentence personalized feedback to guide their study focus before exams."""
+            config = types.GenerateContentConfig(temperature=0.3, max_output_tokens=250)
+            ai_fb = _call_gemini(QA_MODELS, prompt, config=config)
+            if ai_fb:
+                advice = ai_fb.strip()
+        else:
+            advice = f"Outstanding performance ({percentage}%)! You demonstrated a complete mastery of all concepts covered in this lecture."
+    except Exception as e:
+        print(f"[Gemini Feedback Error]: {e}")
+
+    return {
+        "score": correct_count,
+        "total": total,
+        "percentage": percentage,
+        "mastery_level": mastery,
+        "feedback": advice,
+        "breakdown": breakdown
+    }

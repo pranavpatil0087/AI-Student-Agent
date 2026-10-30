@@ -69,8 +69,10 @@ NOTION_API_TOKEN=your_notion_api_token
 NOTION_PAGE_ID=your_notion_page_id
 EMAIL=your_google_account_email
 PASSWORD=your_google_account_password
-GMEET_LINK=google_meet_link
+STUDENT_NAME=Ganesh Jadhav
+TRIGGER_KEYWORDS=ganesh,jadhav,attendance,present
 ```
+*(Google Meet link is entered via the Web Dashboard)*
 
 ---
 
@@ -84,7 +86,7 @@ GMEET_LINK=google_meet_link
 ### **5. Run the AI Agent**
 1. Start the AI agent:
    ```bash
-   python main.py
+   python main.py (opens Web Dashboard at http://localhost:5000)
    ```
 2. Follow the prompts to join a Google Meet session.
 3. The agent will:
@@ -102,9 +104,10 @@ GMEET_LINK=google_meet_link
 ---
 
 ## **Features**
-1. **Automation**: Hands-free attendance and participation in online classes.
-2. **Transcript and Notes**: AI-generated notes from meeting transcripts stored in Notion for easy reference.
-3. **Customizable Responses**: The agent uses OpenAI to answer questions or send default responses if no question is detected.
+1. **Automation**: Hands-free attendance and automated participation in Google Meet.
+2. **Transcript and Notes**: Real-time closed-caption & speech transcript stream; notes compiled with Google Gemini and uploaded directly to Notion.
+3. **Interactive Self-Evaluation Quiz**: Takes the lecture notes saved in Notion to Gemini LLM to generate an interactive 5 to 10 question quiz on the web frontend. Students can answer questions, view immediate scoring, read conceptual explanations, and receive personalized AI diagnostic study advice.
+4. **Web Front-End Dashboard**: Clean, responsive UI with meeting link entry, live speech feed, attendance activity logs, formatted notes viewer, and self-evaluation quiz.
 
 ---
 
